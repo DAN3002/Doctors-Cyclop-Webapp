@@ -3,13 +3,12 @@
 	"private": true,
 	"scripts": {
 		"start": "meteor run",
-		"test": "meteor test --once --driver-package meteortesting:mocha",
-		"test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-		"visualize": "meteor --production --extra-packages bundle-visualizer"
+		"test": "eslint .",
+		"visualize": "meteor --production --extra-packages bundle-visualizer",
+		"prepare": "husky install"
 	},
 	"dependencies": {
 		"@babel/runtime": "^7.11.2",
-		"husky": "^5.2.0",
 		"jquery": "^3.5.1",
 		"meteor-node-stubs": "^1.0.1"
 	},
@@ -23,11 +22,7 @@
 	"devDependencies": {
 		"@rocket.chat/eslint-config": "^0.4.0",
 		"eslint": "^7.22.0",
-		"eslint-plugin-import": "^2.22.1"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "eslint ."
-		}
+		"eslint-plugin-import": "^2.22.1",
+		"husky": "^5.2.0"
 	}
 }
