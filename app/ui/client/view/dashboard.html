@@ -47,7 +47,7 @@
                     </button>
 
                     <h2 id="section-title" style="font-size: 1.6rem;">
-                        Dashboard
+                        {{ title }}
                     </h2>
 
                     <!-- Topbar Navbar -->
@@ -63,7 +63,7 @@
                 <!-- End of Topbar -->
 
 				<div class="container-fluid pl-4 pr-4 pt-2">
-					
+					{{> Template.dynamic template=content}}
 				</div>
             </div>
             <!-- End of Main Content -->

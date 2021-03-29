@@ -4,6 +4,9 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 FlowRouter.route('/', {
 	name: 'dashboard',
 	action() {
-		BlazeLayout.render('dashboard');
+		BlazeLayout.render('dashboard', {
+			title: 'Dashboard',
+			content: 'patientList',
+		});
 	},
 });
