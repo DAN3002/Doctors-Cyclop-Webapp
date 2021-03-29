@@ -1,7 +1,7 @@
 import { Template } from 'meteor/templating';
 
-import './home.html';
+import './dashboard.html';
 
-Template.home.onCreated(function() {
+Template.dashboard.onCreated(function() {
 	console.log('Hello from console');
 });
