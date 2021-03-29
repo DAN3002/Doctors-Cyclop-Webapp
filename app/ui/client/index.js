@@ -1,1 +1,1 @@
-import './view/home';
+import './view/dashboard';
