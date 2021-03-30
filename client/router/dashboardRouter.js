@@ -10,3 +10,13 @@ FlowRouter.route('/', {
 		});
 	},
 });
+
+FlowRouter.route('/viewCase', {
+	name: 'viewcase',
+	action() {
+		BlazeLayout.render('dashboard', {
+			title: 'View Case',
+			content: 'viewCase',
+		});
+	},
+});

@@ -1,0 +1,47 @@
+<template name="viewCase">
+	<div class="d-flex" style="position: relative;">
+		<div style="height: 80vh; flex-grow: 1;">
+			<ul id="viewer-images" style="display: none"></ul>
+		</div>
+		<div class="info-sidebar">
+			<div id="prediction-sidebar" class="section">
+				<h2 class="info-sidebar-title">
+					RESULT
+				</h2>
+				<div class="form-group">
+					<div style="height: auto; padding: 15px;" class="form-control bg-dark" id="output-log">
+						<ul style="list-style-type: none; padding-left:0px">
+							<li>ETT - Abnormal (0.82)</li>
+							<li>ETT - Nomal (0.5)</li>
+							<li>ETT - Borderline (0.4)</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="section" id="relabelBar">
+				<h2 class="info-sidebar-title">
+					Re-Label
+				</h2>
+				<div class="form-group">
+					<div style="height: auto; padding: 15px 20px;" class="form-control bg-dark" id="output-log">
+						{{#each label in labelList}}
+							<div class="form-check" style="margin-top:5px">
+								<input class="form-check-input" type="checkbox" value="{{label}}" id="{{label}}">
+								<label class="form-check-label" for="{{label}}">
+									{{label}}
+								</label>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+			<div class="section" style="text-align:center;">
+				<button type="button" style="width: 10rem;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2">
+					<i class="fa fa-paper-plane"></i>
+					Submit
+				</button>
+			</div>
+		</div>
+
+	</div>
+</template>

@@ -1,0 +1,15 @@
+.info-sidebar {
+	.section {
+		height: auto;
+		width: 15rem;
+		margin-left: 1rem;
+	}
+
+	&-title {
+		font-size: 1.2rem;
+		text-align: center;
+		margin-top: 10px;
+		color: #04d6b3;
+		font-weight: bold;
+	}
+}
