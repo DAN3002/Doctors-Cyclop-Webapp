@@ -5,7 +5,7 @@ FlowRouter.route('/', {
 	name: 'dashboard',
 	action() {
 		BlazeLayout.render('dashboard', {
-			title: 'Dashboard',
+			title: 'Your Patient Dashboard',
 			content: 'patientList',
 		});
 	},
