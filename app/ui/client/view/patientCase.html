@@ -1,15 +1,15 @@
 <template name="patientCase">
 	<div class="case">
-		<div class="title">Patient_1</div>
+		<div class="title">{{patientId}}</div>
 		<div class="icon">
-			<img src="https://doctor-cylop.s3-ap-southeast-1.amazonaws.com/B2_Base.jpg" alt="">
+			<img src="{{imageUrl}}" alt="Image">
 		</div>
 	
 		<div class="features">
 			<ul>
-				<li>Predict: Nomal</li>
-				<li>Date: 03/03/2021 18:00</li>
-				<li>Status: Done</li>
+				<li>Predict: {{state}}</li>
+				<li>Date: {{formatDate submitTime}}</li>
+				<li>Status: {{state}}</li>
 			</ul>
 		</div>
 	</div>

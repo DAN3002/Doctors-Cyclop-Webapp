@@ -3,3 +3,5 @@ import './view/patientList';
 import './view/patientCase';
 import './view/viewCase';
 import './view/commentSection';
+
+import './globalHelpers';

@@ -19,16 +19,8 @@
 		</div>
 	</form>
 	<div id="patientList" class="scrollBar">
-		{{> patientCase}}
-		{{> patientCase}}
-		{{> patientCase}}
-		{{> patientCase}}
-		{{> patientCase}}
-		{{> patientCase}}
-		{{> patientCase}}
-		{{> patientCase}}
-		{{> patientCase}}
-		{{> patientCase}}
-		{{> patientCase}}
+		{{#each case in casesList}}
+			{{> patientCase case}}
+		{{/each}}
 	</div>
 </template>
