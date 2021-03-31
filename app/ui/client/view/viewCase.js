@@ -1,8 +1,9 @@
 import { Template } from 'meteor/templating';
 import Viewer from 'viewerjs';
 
+import { LABEL_LIST } from '../../../enum/LABEL_LIST';
 import { loadFromCDN } from '../lib/loadFromCDN';
-import { LABEL_LIST } from '../enum/LABEL_LIST';
+
 import './viewCase.html';
 
 Template.viewCase.helpers({
