@@ -10,21 +10,6 @@ $color-four: #F6B352;
 	overflow-y: auto;
 	max-height: 750px;
 
-	&::-webkit-scrollbar {
-		width: 5px;
-		height: 5px;
-	}
-
-	&::-webkit-scrollbar-track {
-		background-color: rgba(255, 255, 255, 0.1);
-		border-radius: 10px;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		background-color: #11171a;
-		border-radius: 10px;
-	}
-
 	.case {
 		background: $color-one;
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
