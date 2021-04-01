@@ -1,10 +1,8 @@
 import { Template } from 'meteor/templating';
-import { Mongo } from 'meteor/mongo';
 import { ReactiveVar } from 'meteor/reactive-var';
 
+import { Cases } from '../../../model';
 import './patientList.html';
-
-const Cases = new Mongo.Collection('case');
 
 Template.patientList.helpers({
 	casesList() {
@@ -12,13 +10,32 @@ Template.patientList.helpers({
 	},
 });
 
+Template.patientList.events({
+	'click #findBtn'() {
+		const patientId = $('#patientIdInput').val();
+		const state = $('#patientState').val();
+		const filter = {};
+
+		if (patientId && patientId.length) {
+			filter.patientId = patientId;
+		}
+
+		if (state !== 'All') {
+			filter.state = state;
+		}
+
+		Template.instance().filter.set(filter);
+	},
+});
+
 Template.patientList.onCreated(function() {
 	this.casesList = new ReactiveVar([]);
+	this.filter = new ReactiveVar({});
 
 	const caseSub = this.subscribe('caseByDoctorId', 'dan');
 	this.autorun(() => {
 		if (caseSub.ready()) {
-			const data = Cases.find({}).fetch();
+			const data = Cases.findByFilter(this.filter.get()).fetch();
 			this.casesList.set(data);
 		}
 	});

@@ -1,4 +1,4 @@
-import { Base } from './_Base';
+import { Base } from '../_Base';
 
 class Cases extends Base {
 	constructor() {
