@@ -11,7 +11,7 @@ FlowRouter.route('/', {
 	},
 });
 
-FlowRouter.route('/viewCase', {
+FlowRouter.route('/viewCase/:caseId', {
 	name: 'viewcase',
 	action() {
 		BlazeLayout.render('dashboard', {

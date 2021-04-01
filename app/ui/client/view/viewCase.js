@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
 import Viewer from 'viewerjs';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { LABEL_LIST } from '../../../enum/LABEL_LIST';
 import { loadFromCDN } from '../lib/loadFromCDN';
@@ -55,7 +56,7 @@ const initViewer = (viewer) => {
 Template.viewCase.onCreated(function() {
 	let viewer;
 	this.caseData = new ReactiveVar({});
-	const caseId = 'ACCNyKQ85YLFqZ3tD';
+	const caseId = FlowRouter.getParam('caseId');
 
 	const caseSub = this.subscribe('caseByCaseId', caseId);
 
