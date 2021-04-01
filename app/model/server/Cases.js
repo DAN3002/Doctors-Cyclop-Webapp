@@ -24,6 +24,13 @@ class Cases extends Base {
 
 		return this.model.find(query);
 	}
+
+	findByCaseId(caseId) {
+		const query = {
+			_id: caseId,
+		};
+		return this.model.find(query);
+	}
 }
 
 export default new Cases();

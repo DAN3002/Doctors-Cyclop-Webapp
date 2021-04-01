@@ -2,15 +2,31 @@
 	<div class="d-flex" style="position: relative;">
 		<div style="overflow-y: auto; max-height: 100vh"  class="scrollBar">
 			<div style="height: 80vh; flex-grow: 1;">
-				<ul id="viewer-images" style="display: none"></ul>
+				<ul id="viewer-images" style="display: none">
+					<!-- {{#each image in imageList}}
+						<li>
+							<img src="{{image.url}}" alt="{{image.alt}}">
+						</li>
+					{{/each}} -->
+				</ul>
 			</div>
 			<div>
+				<div id="case-info" style="color:white">
+					<h2 class="info-sidebar-title" style="text-align: left; margin-top:20px">
+						Case's Info
+					</h2>
+					{{#with caseData}}
+						<ul>
+							<li>Patient's ID: {{patientId}}</li>
+							<li>Submit Date: {{formatDate submitTime}}</li>
+							<!-- TODO: Add doctor info -->
+							<li>Doctor: </li>
+						</ul>
+					{{/with}}
+				</div>
 				{{> commentSection}}
 			</div>
 		</div>
-		<!-- <div style="height: 80vh; flex-grow: 1;">
-			<ul id="viewer-images" style="display: none"></ul>
-		</div> -->
 		<div class="info-sidebar">
 			<div id="prediction-sidebar" class="section">
 				<h2 class="info-sidebar-title">
