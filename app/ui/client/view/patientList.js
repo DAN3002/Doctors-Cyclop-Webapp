@@ -32,7 +32,7 @@ Template.patientList.onCreated(function() {
 	this.casesList = new ReactiveVar([]);
 	this.filter = new ReactiveVar({});
 
-	const caseSub = this.subscribe('caseByDoctorId', 'dan');
+	const caseSub = this.subscribe('caseByDoctorEmail', 'dinhanh300229@gmail.com');
 	this.autorun(() => {
 		if (caseSub.ready()) {
 			const data = Cases.findByFilter(this.filter.get()).fetch();

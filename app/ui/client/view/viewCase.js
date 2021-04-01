@@ -48,7 +48,7 @@ const initViewer = (viewer) => {
 Template.viewCase.onCreated(function() {
 	let viewer;
 	this.caseData = new ReactiveVar({});
-	const caseId = 'HPZZpNnc2ypAG4Qxv';
+	const caseId = 'ACCNyKQ85YLFqZ3tD';
 
 	const caseSub = this.subscribe('caseByCaseId', caseId);
 

@@ -5,10 +5,10 @@ class Cases extends Base {
 		super('case');
 	}
 
-	add(patientId, doctorId, imageUrl) {
+	add(patientId, doctorEmail, imageUrl) {
 		const insert = {
 			patientId,
-			doctorId,
+			doctorEmail,
 			imageUrl,
 			submitTime: new Date(),
 			state: 'Waiting',
@@ -17,9 +17,9 @@ class Cases extends Base {
 		return this.model.insert(insert);
 	}
 
-	findCaseByDoctorId(doctorId) {
+	findCaseByDoctorEmail(doctorEmail) {
 		const query = {
-			doctorId,
+			doctorEmail,
 		};
 
 		return this.model.find(query);
