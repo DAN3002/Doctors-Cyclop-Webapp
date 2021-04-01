@@ -32,6 +32,10 @@ const getImageList = () => {
 			url: caseData.imageUrl,
 			alt: 'Original Image',
 		},
+		{
+			url: 'https://doctor-cylop.s3-ap-southeast-1.amazonaws.com/P1_Mask.jpg',
+			alt: 'Masked Image',
+		},
 	];
 	return out.filter((el) => el.url);
 };
