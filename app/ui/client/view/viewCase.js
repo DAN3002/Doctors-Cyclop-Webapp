@@ -4,6 +4,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import { LABEL_LIST } from '../../../enum/LABEL_LIST';
 import { loadFromCDN } from '../lib/loadFromCDN';
+import { submitRelabel } from '../lib/submitRelabel';
 import { Cases } from '../../../model';
 
 import './viewCase.html';
@@ -14,6 +15,12 @@ Template.viewCase.helpers({
 	},
 	caseData() {
 		return Template.instance().caseData.get();
+	},
+});
+
+Template.viewCase.events({
+	'click #btn-submit'() {
+		submitRelabel();
 	},
 });
 
