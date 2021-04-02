@@ -7,7 +7,10 @@ class Submits extends Base {
 
 	findAllSubmit() {
 		const query = {};
-		return this.model.find(query);
+		const sort = {
+			submitTime: -1,
+		};
+		return this.model.find(query, { sort });
 	}
 }
 

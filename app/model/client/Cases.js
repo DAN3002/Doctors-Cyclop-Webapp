@@ -8,6 +8,9 @@ class Cases extends Base {
 	findByFilter(filter) {
 		const { patientId, state } = filter;
 		const query = {};
+		const sort = {
+			submitTime: -1,
+		};
 
 		if (patientId) {
 			query.patientId = patientId;
@@ -17,7 +20,7 @@ class Cases extends Base {
 			query.state = state;
 		}
 
-		return this.model.find(query);
+		return this.model.find(query, { sort });
 	}
 
 	findAllCase() {
