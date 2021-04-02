@@ -12,7 +12,7 @@ export const submitRelabel = () => {
 
 	const caseId = FlowRouter.getParam('caseId');
 	/* TODO get doctordata */
-	const doctorEmail = 'dinhanh300229';
+	const doctorEmail = 'dinhanh300229@gmail.com';
 	const type = 'Specialist';
 
 	Swal.fire({

@@ -6,6 +6,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { LABEL_LIST } from '../../../enum/LABEL_LIST';
 import { loadFromCDN } from '../lib/loadFromCDN';
 import { submitRelabel } from '../lib/submitRelabel';
+import { skipRelabel } from '../lib/skipRelabel';
 import { Cases } from '../../../model';
 
 import './viewCase.html';
@@ -22,6 +23,9 @@ Template.viewCase.helpers({
 Template.viewCase.events({
 	'click #btn-submit'() {
 		submitRelabel();
+	},
+	'click #btn-skip'() {
+		skipRelabel();
 	},
 });
 
