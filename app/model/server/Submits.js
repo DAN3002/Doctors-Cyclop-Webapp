@@ -12,9 +12,18 @@ class Submits extends Base {
 			type,
 			labels,
 			comment,
+			submitTime: new Date(),
 		};
 
 		return this.model.insert(insert);
+	}
+
+	findByCaseId(caseId) {
+		const query = {
+			caseId,
+		};
+
+		return this.model.find(query);
 	}
 }
 

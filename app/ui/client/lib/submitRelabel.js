@@ -6,6 +6,7 @@ export const submitRelabel = () => {
 	// Get ticked value
 	const selectedLabels = [];
 	$('.form-check-input:checked').each((i, el) => {
+		$(el).prop('checked', false);
 		selectedLabels.push($(el).val());
 	});
 

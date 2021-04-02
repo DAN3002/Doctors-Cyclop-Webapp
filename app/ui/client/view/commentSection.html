@@ -4,47 +4,28 @@
 	</h2>
 
 	<div id="commentList">
-		<div class="d-flex flex-row mt-4 comment-item">
-			<img src="/img/avatar.png" width="40" height="40">
-			<div class="ml-2 w-100">
-				<div class="d-flex justify-content-between align-items-center">
-					<div class="d-flex flex-row align-items-center">
-						<span class="font-weight-bold name">
-							Mark Hamilton
-							<small class="text-muted time-text">31/02/2021 15:44</small>
-						</span>
+		{{#each submit in submitList}}
+			<div class="d-flex flex-row mt-4 comment-item">
+				<img src="/img/avatar.png" width="40" height="40">
+				<div class="ml-2 w-100">
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="d-flex flex-row align-items-center">
+							<span class="font-weight-bold name">
+								{{submit.doctorEmail}}
+								<small class="text-muted time-text">{{formatDate submit.submitTime}}</small>
+							</span>
+						</div>
 					</div>
+					<p class="user-comment-text text-justify">{{submit.comment}}</p>
+		
+					<ul style="margin:0px 0px 15px 0px">
+						{{#each label in getSelectedLabel submit.labels}}
+							<li>{{label}}</li>
+						{{/each}}
+					</ul>	
 				</div>
-				<p class="user-comment-text text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque velit magni, iusto quasi eum distinctio ea architecto non repellendus aut assumenda recusandae necessitatibus reprehenderit modi vero maxime laudantium delectus ducimus!</p>
-	
-				<ul style="margin:0px">
-					<li>CVC - Borderline</li>
-					<li>NGT - Borderline</li>
-					<li>ETT - Borderline</li>
-				</ul>	
 			</div>
-		</div>
-
-		<div class="d-flex flex-row mt-4 comment-item">
-			<img src="/img/avatar.png" width="40" height="40">
-			<div class="ml-2 w-100">
-				<div class="d-flex justify-content-between align-items-center">
-					<div class="d-flex flex-row align-items-center">
-						<span class="font-weight-bold name">
-							Mark Hamilton
-							<small class="text-muted time-text">31/02/2021 15:44</small>
-						</span>
-					</div>
-				</div>
-				<p class="user-comment-text text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque velit magni, iusto quasi eum distinctio ea architecto non repellendus aut assumenda recusandae necessitatibus reprehenderit modi vero maxime laudantium delectus ducimus!</p>
-	
-				<ul style="margin:0px 0px 20px 0px">
-					<li>CVC - Borderline</li>
-					<li>NGT - Borderline</li>
-					<li>ETT - Borderline</li>
-				</ul>	
-			</div>
-		</div>
+		{{/each}}
 	</div>
 
 </template>
