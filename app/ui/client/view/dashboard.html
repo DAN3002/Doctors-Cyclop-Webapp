@@ -48,6 +48,7 @@
 
                     <h2 id="section-title" style="font-size: 1.6rem;">
                         {{ title }}
+                        <!-- {{> loginButtons}} -->
                     </h2>
 
                     <!-- Topbar Navbar -->
@@ -55,7 +56,10 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <p>Welcome!</p>
+                            <!-- <p>Welcome!</p> -->
+                            <div style="color:white">
+                                {{> loginButtons  align="right"}}
+                            </div>
                         </li>
                     </ul>
 
