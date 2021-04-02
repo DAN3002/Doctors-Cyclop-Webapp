@@ -34,7 +34,6 @@ export const submitRelabel = () => {
 		allowOutsideClick: false,
 		preConfirm: () => document.getElementById('mentorComment').value,
 	}).then((result) => {
-		console.log(result);
 		if (result.isConfirmed) {
 			const comment = result.value;
 			const param = { caseId, doctorEmail, type, selectedLabels, comment };
