@@ -37,13 +37,18 @@ Template.patientList.events({
 			filter.state = state;
 		}
 
+		if (FlowRouter.current().queryParams.expert === 'true') {
+			filter.expert = true;
+		}
+
 		Template.instance().filter.set(filter);
 	},
 });
 
 Template.patientList.onCreated(function() {
 	const query = FlowRouter.current().queryParams;
-	console.log(query);
+	query.expert = query.expert === 'true';
+
 	this.casesList = new ReactiveVar([]);
 	this.filter = new ReactiveVar(query);
 
