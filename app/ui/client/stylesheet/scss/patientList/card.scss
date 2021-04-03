@@ -1,7 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
 // Colors
-$color-one: #1F2124;
+$color-Waiting: #1F2124;
+$color-Nomal: #67d61c;
+$color-Abnomal: #e67a3c;
+$color-Borderline: #e6423c;
+
 $color-two: #383A3F;
 $color-three: #F68657;
 $color-four: #F6B352;
@@ -11,7 +15,6 @@ $color-four: #F6B352;
 	max-height: 750px;
 
 	.case {
-		background: $color-one;
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 		border-radius: 5px;
 		margin: 15px 20px 20px 20px;
@@ -22,12 +25,13 @@ $color-four: #F6B352;
 		color: white;
 		float: left;
 		border: 1px solid rgba(0, 0, 0, 0);
+
 		&:hover {
 			transition: all 0.2s ease-out;
 			box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
 			top: -4px;
 			border: 1px solid #cccccc;
-		  }
+		}
 
 		.title {
 			font-size: 20px;
@@ -52,6 +56,21 @@ $color-four: #F6B352;
 				li {
 					margin: 5px 0;
 				}
+			}
+		}
+
+		&-color {
+			&-Waiting {
+				background: $color-Waiting;
+			}
+			&-Nomal {
+				background: $color-Nomal;
+			}
+			&-Abnomal {
+				background: $color-Abnomal;
+			}
+			&-Borderline {
+				background: $color-Borderline;
 			}
 		}
 	}
