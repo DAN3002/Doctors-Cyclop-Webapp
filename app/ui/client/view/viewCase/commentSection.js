@@ -2,7 +2,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import { Submits } from '../../../model';
+import { Submits } from '../../../../model';
 import './commentSection.html';
 
 Template.commentSection.helpers({

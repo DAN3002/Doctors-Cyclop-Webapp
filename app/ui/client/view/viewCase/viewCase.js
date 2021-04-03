@@ -3,11 +3,11 @@ import Viewer from 'viewerjs';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import { LABEL_LIST } from '../../../enum/LABEL_LIST';
-import { loadFromCDN } from '../lib/loadFromCDN';
-import { submitRelabel } from '../lib/submitRelabel';
-import { skipRelabel } from '../lib/skipRelabel';
-import { Cases } from '../../../model';
+import { LABEL_LIST } from '../../../../enum/LABEL_LIST';
+import { loadFromCDN } from '../../lib/loadFromCDN';
+import { submitRelabel } from '../../lib/submitRelabel';
+import { skipRelabel } from '../../lib/skipRelabel';
+import { Cases } from '../../../../model';
 
 import './viewCase.html';
 

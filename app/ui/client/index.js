@@ -1,7 +1,7 @@
-import './view/dashboard';
-import './view/patientList';
-import './view/patientCase';
-import './view/viewCase';
-import './view/commentSection';
+import './view/dashboard/dashboard';
+import './view/patientList/patientList';
+import './view/patientList/patientCase';
+import './view/viewCase/viewCase';
+import './view/viewCase/commentSection';
 
 import './globalHelpers';

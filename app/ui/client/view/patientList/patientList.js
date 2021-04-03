@@ -2,9 +2,9 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import { Cases } from '../../../model';
-import { getUserEmail } from '../../../lib/client/getUserEmail';
-import { STATE } from '../../../enum/STATE';
+import { Cases } from '../../../../model';
+import { getUserEmail } from '../../../../lib/client/getUserEmail';
+import { STATE } from '../../../../enum/STATE';
 import './patientList.html';
 
 Template.patientList.helpers({
