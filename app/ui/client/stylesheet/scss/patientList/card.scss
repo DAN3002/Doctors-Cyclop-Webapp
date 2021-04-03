@@ -3,7 +3,7 @@
 // Colors
 $color-Waiting: #1F2124;
 $color-Nomal: #67d61c;
-$color-Abnomal: #e67a3c;
+$color-Abnormal: #e67a3c;
 $color-Borderline: #e6423c;
 
 $color-two: #383A3F;
@@ -16,6 +16,7 @@ $color-four: #F6B352;
 
 	.case {
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+		background: $color-Waiting;
 		border-radius: 5px;
 		margin: 15px 20px 20px 20px;
 		width: calc(33.3333% - 40px);
@@ -60,14 +61,11 @@ $color-four: #F6B352;
 		}
 
 		&-color {
-			&-Waiting {
-				background: $color-Waiting;
-			}
 			&-Nomal {
 				background: $color-Nomal;
 			}
-			&-Abnomal {
-				background: $color-Abnomal;
+			&-Abnormal {
+				background: $color-Abnormal;
 			}
 			&-Borderline {
 				background: $color-Borderline;
