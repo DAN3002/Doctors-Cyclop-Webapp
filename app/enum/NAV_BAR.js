@@ -6,7 +6,7 @@ export const NAV_BAR = [
 	},
 	{
 		text: 'Need Relable Dashboard',
-		route: '/?relabel=true&type=specialist',
+		route: '/?relabel=true',
 		icon: 'fas fa-check',
 	},
 ];
