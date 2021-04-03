@@ -2,14 +2,16 @@
 	<form id="filterForm" class="row mt-0">
 		<div class="p-2">
 			<div class="input-group input-group-sm mb-3">
-				<input type="text" class="form-control" id="patientIdInput" aria-describedby="emailHelp"
+				<input type="text" class="form-control" id="patientIdInput" aria-describedby="emailHelp" value="{{filterQuery.patientId}}"
 					placeholder="Enter Patient's ID" style="width: 25rem;margin-right:20px">
 				<select class="form-control" style="width: 10rem; margin-right:20px" id="patientState">
-					<option>All</option>
-					<option>Waiting</option>
-					<option>Nomal</option>
-					<option>Abnormal</option>
-					<option>Borderline</option>
+					{{#each state in states}}
+						{{#if isSelectedState state}}
+							<option selected>{{state}}</option>
+						{{else}}
+							<option>{{state}}</option>					
+						{{/if}}
+					{{/each}}
 				</select>
 
 				<button id="findBtn" type="button" style="width: 10rem;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2">

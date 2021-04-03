@@ -2,7 +2,7 @@
 
 // Colors
 $color-Waiting: #1F2124;
-$color-Nomal: #67d61c;
+$color-Normal: #67d61c;
 $color-Abnormal: #e67a3c;
 $color-Borderline: #e6423c;
 
@@ -61,8 +61,8 @@ $color-four: #F6B352;
 		}
 
 		&-color {
-			&-Nomal {
-				background: $color-Nomal;
+			&-Normal {
+				background: $color-Normal;
 			}
 			&-Abnormal {
 				background: $color-Abnormal;
