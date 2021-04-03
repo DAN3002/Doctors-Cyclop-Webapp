@@ -67,7 +67,9 @@
                 <!-- End of Topbar -->
 
 				<div class="container-fluid pl-4 pr-4 pt-2">
-					{{> Template.dynamic template=content}}
+                    {{#if Template.subscriptionsReady}}
+					    {{> Template.dynamic template=content}}
+                    {{/if}}
 				</div>
             </div>
             <!-- End of Main Content -->

@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import { Cases } from '../../../model';
+import { getUserEmail } from '../../../lib/client/getUserEmail';
 import './patientList.html';
 
 Template.patientList.helpers({
@@ -32,7 +33,7 @@ Template.patientList.onCreated(function() {
 	this.casesList = new ReactiveVar([]);
 	this.filter = new ReactiveVar({});
 
-	const caseSub = this.subscribe('caseByDoctorEmail', 'dinhanh300229@gmail.com');
+	const caseSub = this.subscribe('caseByDoctorEmail', getUserEmail());
 	this.autorun(() => {
 		if (caseSub.ready()) {
 			const data = Cases.findByFilter(this.filter.get()).fetch();

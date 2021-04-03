@@ -2,6 +2,8 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Meteor } from 'meteor/meteor';
 import Swal from 'sweetalert2';
 
+import { getUserEmail } from '../../../lib/client/getUserEmail';
+
 export const submitRelabel = () => {
 	// Get ticked value
 	const selectedLabels = [];
@@ -12,7 +14,7 @@ export const submitRelabel = () => {
 
 	const caseId = FlowRouter.getParam('caseId');
 	/* TODO get doctordata */
-	const doctorEmail = 'dinhanh300229@gmail.com';
+	const doctorEmail = getUserEmail();
 	const type = 'Specialist';
 
 	Swal.fire({
