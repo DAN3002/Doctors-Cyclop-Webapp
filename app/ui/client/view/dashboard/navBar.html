@@ -2,10 +2,12 @@
 	<div id="section-menu">
 		<li name="chest_xray" class="nav-item">
 			{{#each item in navItems}}
-				<span class="nav-link" data-route="{{item.route}}">
-					<i class="{{item.icon}}"></i>
-					<span>{{item.text}}</span>
-				</span>
+				{{#if canShowItem item}}
+					<span class="nav-link" data-route="{{item.route}}">
+						<i class="{{item.icon}}"></i>
+						<span>{{item.text}}</span>
+					</span>
+				{{/if}}
 			{{/each}}
 		</li>
 	</div>

@@ -9,4 +9,10 @@ export const NAV_BAR = [
 		route: '/?relabel=true',
 		icon: 'fas fa-check',
 	},
+	{
+		text: 'Expert Dashboard',
+		route: '/?relabel=true&expert=true',
+		icon: 'fas fa-book-medical',
+		role: 'expert',
+	},
 ];
