@@ -31,6 +31,14 @@ class Cases extends Base {
 		};
 		return this.model.find(query);
 	}
+
+	findCaseNeedRelable() {
+		const query = {
+			relabel: true,
+		};
+
+		return this.model.find(query);
+	}
 }
 
 export default new Cases();

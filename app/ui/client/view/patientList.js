@@ -42,10 +42,14 @@ Template.patientList.events({
 });
 
 Template.patientList.onCreated(function() {
+	const query = FlowRouter.current().queryParams;
+	console.log(query);
 	this.casesList = new ReactiveVar([]);
-	this.filter = new ReactiveVar(FlowRouter.current().queryParams);
+	this.filter = new ReactiveVar(query);
 
-	const caseSub = this.subscribe('caseByDoctorEmail', getUserEmail());
+	const caseSub = query.relabel === 'true' ? this.subscribe('needRelableCase')
+		: this.subscribe('caseByDoctorEmail', getUserEmail());
+
 	this.autorun(() => {
 		if (caseSub.ready()) {
 			const data = Cases.findByFilter(this.filter.get()).fetch();
