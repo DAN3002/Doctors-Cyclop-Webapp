@@ -19,6 +19,12 @@ Template.patientCase.helpers({
 Template.patientCase.events({
 	'click .case'() {
 		const { _id: caseId } = Template.instance().data;
-		FlowRouter.go('viewcase', { caseId });
+		const query = {};
+
+		if (FlowRouter.current().queryParams.expert === 'true') {
+			query.expert = true;
+		}
+
+		FlowRouter.go('viewcase', { caseId }, query);
 	},
 });

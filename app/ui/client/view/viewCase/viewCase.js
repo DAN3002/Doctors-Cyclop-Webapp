@@ -18,6 +18,10 @@ Template.viewCase.helpers({
 	caseData() {
 		return Template.instance().caseData.get();
 	},
+	canViewComment() {
+		const caseData = Template.instance().caseData.get();
+		return !caseData.relabel || FlowRouter.current().queryParams.expert === 'true';
+	},
 });
 
 Template.viewCase.events({

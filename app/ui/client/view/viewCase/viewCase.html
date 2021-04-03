@@ -23,7 +23,9 @@
 						</ul>
 					{{/with}}
 				</div>
-				{{> commentSection}}
+				{{#if canViewComment}}
+					{{> commentSection}}
+				{{/if}}
 			</div>
 		</div>
 		<div class="info-sidebar">
