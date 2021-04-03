@@ -8,6 +8,7 @@ import { loadFromCDN } from '../../lib/loadFromCDN';
 import { submitRelabel } from '../../lib/submitRelabel';
 import { skipRelabel } from '../../lib/skipRelabel';
 import { Cases } from '../../../../model';
+import { getUserEmail } from '../../../../lib/client/getUserEmail';
 
 import './viewCase.html';
 
@@ -21,6 +22,14 @@ Template.viewCase.helpers({
 	canViewComment() {
 		const caseData = Template.instance().caseData.get();
 		return !caseData.relabel || FlowRouter.current().queryParams.expert === 'true';
+	},
+	canSubmitRelabel() {
+		const caseData = Template.instance().caseData.get();
+		return caseData.relabel && !caseData.relabelResult;
+	},
+	canRequestRelabel() {
+		const caseData = Template.instance().caseData.get();
+		return !caseData.relabel && !caseData.relabelResult && caseData.doctorEmail === getUserEmail();
 	},
 });
 
