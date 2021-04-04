@@ -1,5 +1,5 @@
 export const getStateFromLableList = (labels) => {
-	const list = Object.keys().filter((key) => labels[key]);
+	const list = Object.keys(labels).filter((key) => labels[key]);
 	const stateSort = [
 		'Borderline',
 		'Abnormal',

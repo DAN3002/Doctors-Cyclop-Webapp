@@ -26,6 +26,16 @@ class Submits extends Base {
 
 		return this.model.find(query);
 	}
+
+	countSubmitOfCaseByRole(caseId, role, isSkip) {
+		const query = {
+			caseId,
+			type: role,
+			skip: isSkip,
+		};
+
+		return this.model.find(query).count();
+	}
 }
 
 export default new Submits();

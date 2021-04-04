@@ -21,6 +21,11 @@ Template.viewCase.helpers({
 	},
 	canViewComment() {
 		const caseData = Template.instance().caseData.get();
+
+		if (caseData.doctorEmail === getUserEmail()) {
+			return true;
+		}
+
 		return !caseData.relabel || FlowRouter.current().queryParams.expert === 'true';
 	},
 	canSubmitRelabel() {

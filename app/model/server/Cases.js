@@ -57,6 +57,19 @@ class Cases extends Base {
 
 		return this.model.update(query, update);
 	}
+
+	updateRelabelToExpert(caseId) {
+		const query = {
+			_id: caseId,
+		};
+		const update = {
+			$set: {
+				relabelRole: 'expert',
+			},
+		};
+
+		return this.model.update(query, update);
+	}
 }
 
 export default new Cases();
