@@ -6,6 +6,10 @@ Meteor.publish('caseByDoctorEmail', function(doctorEmail) {
 	return Cases.findCaseByDoctorEmail(doctorEmail);
 });
 
+Meteor.publish('allCase', function() {
+	return Cases.findAll();
+});
+
 Meteor.publish('needRelableCase', function() {
 	return Cases.findCaseNeedRelable();
 });

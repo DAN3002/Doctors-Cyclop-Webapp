@@ -52,8 +52,13 @@ Template.patientList.onCreated(function() {
 	this.casesList = new ReactiveVar([]);
 	this.filter = new ReactiveVar(query);
 
-	const caseSub = query.relabel === 'true' ? this.subscribe('needRelableCase')
-		: this.subscribe('caseByDoctorEmail', getUserEmail());
+	let caseSub;
+	if (query.all === 'true') {
+		caseSub = this.subscribe('allCase');
+	} else {
+		caseSub = query.relabel === 'true' ? this.subscribe('needRelableCase')
+			: this.subscribe('caseByDoctorEmail', getUserEmail());
+	}
 
 	this.autorun(() => {
 		if (caseSub.ready()) {

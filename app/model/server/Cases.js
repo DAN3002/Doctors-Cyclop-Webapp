@@ -84,6 +84,10 @@ class Cases extends Base {
 
 		return this.model.update(query, update);
 	}
+
+	findAll() {
+		return this.model.find({});
+	}
 }
 
 export default new Cases();
