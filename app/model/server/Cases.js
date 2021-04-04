@@ -1,4 +1,5 @@
 import { Base } from '../_Base';
+import { getStateFromLableList } from '../../lib/server/getStateFromLableList';
 
 class Cases extends Base {
 	constructor() {
@@ -35,9 +36,26 @@ class Cases extends Base {
 	findCaseNeedRelable() {
 		const query = {
 			relabel: true,
+			relabelResult: {
+				$exists: false,
+			},
 		};
 
 		return this.model.find(query);
+	}
+
+	updateRelableResult(caseId, result) {
+		const query = {
+			_id: caseId,
+		};
+		const update = {
+			$set: {
+				relabelResult: result,
+				state: getStateFromLableList(result),
+			},
+		};
+
+		return this.model.update(query, update);
 	}
 }
 

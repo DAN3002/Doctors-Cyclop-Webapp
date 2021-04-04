@@ -22,6 +22,9 @@ class Cases extends Base {
 
 		if (expert) {
 			query.relabelRole = 'expert';
+			query.relabelResult = {
+				$exists: false,
+			};
 		}
 
 		return this.model.find(query, { sort });

@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
-import { Submits } from '../../../model';
+import { Submits, Cases } from '../../../model';
 import { LABEL_LIST } from '../../../enum/LABEL_LIST';
 
 Meteor.methods({
@@ -8,6 +8,10 @@ Meteor.methods({
 		const labels = {};
 		for (const label of LABEL_LIST) {
 			labels[label] = selectedLabels.includes(label);
+		}
+
+		if (type === 'Expert') {
+			Cases.updateRelableResult(caseId, labels);
 		}
 
 		Submits.add(caseId, doctorEmail, type, labels, comment);

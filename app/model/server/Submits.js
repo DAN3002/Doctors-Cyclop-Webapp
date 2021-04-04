@@ -13,6 +13,7 @@ class Submits extends Base {
 			labels,
 			comment,
 			submitTime: new Date(),
+			skip: comment === 'SKIP',
 		};
 
 		return this.model.insert(insert);
