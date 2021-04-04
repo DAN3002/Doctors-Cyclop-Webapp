@@ -70,6 +70,20 @@ class Cases extends Base {
 
 		return this.model.update(query, update);
 	}
+
+	startRelable(caseId) {
+		const query = {
+			_id: caseId,
+		};
+		const update = {
+			$set: {
+				relabel: true,
+				relabelRole: 'specialist',
+			},
+		};
+
+		return this.model.update(query, update);
+	}
 }
 
 export default new Cases();

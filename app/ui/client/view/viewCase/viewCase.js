@@ -2,6 +2,8 @@ import { Template } from 'meteor/templating';
 import Viewer from 'viewerjs';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import { Meteor } from 'meteor/meteor';
+import Swal from 'sweetalert2';
 
 import { LABEL_LIST } from '../../../../enum/LABEL_LIST';
 import { loadFromCDN } from '../../lib/loadFromCDN';
@@ -44,6 +46,16 @@ Template.viewCase.events({
 	},
 	'click #btn-skip'() {
 		skipRelabel();
+	},
+	'click #btn-relabel'() {
+		const caseId = FlowRouter.getParam('caseId');
+		Meteor.call('predict:startRelable', caseId, () => {
+			Swal.fire({
+				icon: 'success',
+				title: 'Success',
+				text: 'Start relabel!',
+			});
+		});
 	},
 });
 
