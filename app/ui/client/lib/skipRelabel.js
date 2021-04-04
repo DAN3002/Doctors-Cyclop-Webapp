@@ -8,7 +8,7 @@ export const skipRelabel = () => {
 	const caseId = FlowRouter.getParam('caseId');
 	/* TODO get doctordata */
 	const doctorEmail = getUserEmail();
-	const type = 'Specialist';
+	const type = FlowRouter.current().queryParams.expert === 'true' ? 'Expert' : 'Specialist';
 
 	Swal.fire({
 		title: 'Are you sure?',
