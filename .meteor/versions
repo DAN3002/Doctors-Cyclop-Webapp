@@ -67,6 +67,7 @@ npm-bcrypt@0.9.3
 npm-mongo@3.8.1
 observe-sequence@1.0.16
 ordered-dict@1.1.0
+pauldowman:dotenv@1.0.1
 promise@0.11.2
 random@1.2.0
 rate-limit@1.0.9
