@@ -9,7 +9,7 @@ import { LABEL_LIST } from '../../../../enum/LABEL_LIST';
 import { loadFromCDN } from '../../lib/loadFromCDN';
 import { submitRelabel } from '../../lib/submitRelabel';
 import { skipRelabel } from '../../lib/skipRelabel';
-import { Cases } from '../../../../model';
+import { Cases, Submits } from '../../../../model';
 import { getUserEmail } from '../../../../lib/client/getUserEmail';
 
 import './viewCase.html';
@@ -32,6 +32,11 @@ Template.viewCase.helpers({
 	},
 	canSubmitRelabel() {
 		const caseData = Template.instance().caseData.get();
+
+		if (caseData.doctorEmail === getUserEmail() && !Submits.isHasOwnerSubmit()) {
+			return true;
+		}
+
 		return caseData.relabel && !caseData.relabelResult;
 	},
 	canRequestRelabel() {

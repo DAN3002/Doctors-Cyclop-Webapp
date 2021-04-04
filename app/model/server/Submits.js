@@ -5,7 +5,7 @@ class Submits extends Base {
 		super('submit');
 	}
 
-	add(caseId, doctorEmail, type, labels, comment) {
+	add(caseId, doctorEmail, type, labels, comment, isOwner) {
 		const insert = {
 			caseId,
 			doctorEmail,
@@ -13,6 +13,7 @@ class Submits extends Base {
 			labels,
 			comment,
 			submitTime: new Date(),
+			isOwner,
 			skip: comment === 'SKIP',
 		};
 

@@ -11,7 +11,10 @@ Meteor.methods({
 		for (const label of LABEL_LIST) {
 			labels[label] = selectedLabels.includes(label);
 		}
-		Submits.add(caseId, doctorEmail, type, labels, comment);
+		const caseData = Cases.findByCaseId(caseId).fetch()[0] || {};
+		const isOwner = doctorEmail === caseData.doctorEmail;
+
+		Submits.add(caseId, doctorEmail, type, labels, comment, isOwner);
 
 		if (type === 'Expert') {
 			Cases.updateRelableResult(caseId, labels);

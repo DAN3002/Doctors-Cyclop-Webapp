@@ -12,6 +12,13 @@ class Submits extends Base {
 		};
 		return this.model.find(query, { sort });
 	}
+
+	isHasOwnerSubmit() {
+		const query = {
+			isOwner: true,
+		};
+		return this.model.find(query).count() > 0;
+	}
 }
 
 export default new Submits();

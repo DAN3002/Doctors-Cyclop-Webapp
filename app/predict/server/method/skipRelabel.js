@@ -12,6 +12,10 @@ Meteor.methods({
 		for (const label of LABEL_LIST) {
 			labels[label] = false;
 		}
+		const caseData = Cases.findByCaseId(caseId).fetch()[0] || {};
+		const isOwner = doctorEmail === caseData.doctorEmail;
+
+		Submits.add(caseId, doctorEmail, type, labels, comment, isOwner);
 
 		if (type === 'Specialist') {
 			const count = Submits.countSubmitOfCaseByRole(caseId, 'Specialist', true);
@@ -21,7 +25,6 @@ Meteor.methods({
 			}
 		}
 
-		Submits.add(caseId, doctorEmail, type, labels, comment);
 		return true;
 	},
 });
