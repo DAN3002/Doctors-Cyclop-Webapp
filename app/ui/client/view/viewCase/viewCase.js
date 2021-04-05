@@ -43,6 +43,12 @@ Template.viewCase.helpers({
 		const caseData = Template.instance().caseData.get();
 		return !caseData.relabel && !caseData.relabelResult && caseData.doctorEmail === getUserEmail();
 	},
+	hasAIPredict() {
+		return Template.instance().caseData.get().AISubmitDate;
+	},
+	trueLabel() {
+		return Template.instance().trueLabel.get();
+	},
 });
 
 Template.viewCase.events({
@@ -96,9 +102,24 @@ const initViewer = (viewer) => {
 	viewer.show();
 };
 
+const processAIResult = (result) => {
+	const out = [];
+	for (const [label, value] of Object.entries(result)) {
+		if (value.label) {
+			out.push({
+				label,
+				score: value.score,
+			});
+		}
+	}
+
+	return out;
+};
+
 Template.viewCase.onCreated(function() {
 	let viewer;
 	this.caseData = new ReactiveVar({});
+	this.trueLabel = new ReactiveVar([]);
 	const caseId = FlowRouter.getParam('caseId');
 
 	const caseSub = this.subscribe('caseByCaseId', caseId);
@@ -106,8 +127,8 @@ Template.viewCase.onCreated(function() {
 	this.autorun(() => {
 		if (caseSub.ready()) {
 			const data = Cases.findAllCase().fetch()[0];
-			console.log(data);
 			this.caseData.set(data);
+			this.trueLabel.set(processAIResult(data.AIResult || []));
 			initViewer(viewer);
 		}
 	});

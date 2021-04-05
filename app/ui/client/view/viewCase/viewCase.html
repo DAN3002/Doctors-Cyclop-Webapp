@@ -2,13 +2,7 @@
 	<div class="d-flex" style="position: relative;">
 		<div style="overflow-y: auto; max-height: 100vh"  class="scrollBar">
 			<div style="height: 80vh; flex-grow: 1;">
-				<ul id="viewer-images" style="display: none">
-					<!-- {{#each image in imageList}}
-						<li>
-							<img src="{{image.url}}" alt="{{image.alt}}">
-						</li>
-					{{/each}} -->
-				</ul>
+				<ul id="viewer-images" style="display: none"></ul>
 			</div>
 			<div style="min-width: 1500px">
 				<div id="case-info" style="color:white">
@@ -30,32 +24,40 @@
 			</div>
 		</div>
 		<div class="info-sidebar">
-			<div id="prediction-sidebar" class="section">
-				<h2 class="info-sidebar-title">
-					RESULT
-				</h2>
-				<div class="form-group">
-					<div style="height: auto; padding: 15px;" class="form-control bg-dark" id="output-log">
-						<ul style="list-style-type: none; padding-left:0px">
-							<li>ETT - Abnormal (0.82)</li>
-							<li>ETT - Nomal (0.5)</li>
-							<li>ETT - Borderline (0.4)</li>
-						</ul>
+			{{#if hasAIPredict}}
+				<div id="prediction-sidebar" class="section">
+					<h2 class="info-sidebar-title">
+						RESULT
+					</h2>
+					<div class="form-group">
+						<div style="height: auto; padding: 15px;" class="form-control bg-dark" id="output-log">
+							<ul style="list-style-type: none; padding-left:0px">
+								{{#each predict in trueLabel}}
+									<li>{{predict.label}} ({{predict.score}})</li>
+								{{/each}}
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="section" style="text-align:center;">
-				<button type="button" style="width: 10rem;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2">
-					<i class="fas fa-eye"></i>
-					View all
-				</button>
-				{{#if canRequestRelabel}}
-					<button type="button" style="width: 10rem;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2" id = "btn-relabel">
-						<i class="fa fa-check-circle"></i>
-						Relable
+				<div class="section" style="text-align:center;">
+					<button type="button" style="width: 10rem;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2">
+						<i class="fas fa-eye"></i>
+						View all
 					</button>
-				{{/if}}
+					{{#if canRequestRelabel}}
+						<button type="button" style="width: 10rem;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2" id = "btn-relabel">
+							<i class="fa fa-check-circle"></i>
+							Relable
+						</button>
+					{{/if}}
+				</div>
+			{{else}}
+			<div id="prediction-sidebar" class="section">
+				<h2 class="info-sidebar-title">
+					Waiting AI Predict
+				</h2>
 			</div>
+			{{/if}}
 			<hr>
 			{{#if canSubmitRelabel}}
 				<div class="section" id="relabelBar">
