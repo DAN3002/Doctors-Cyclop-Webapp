@@ -5,7 +5,7 @@ FlowRouter.route('/', {
 	name: 'dashboard',
 	action() {
 		BlazeLayout.render('dashboard', {
-			title: 'Your Patient Dashboard',
+			title: 'Patient Dashboard',
 			content: 'patientList',
 		});
 	},
@@ -17,6 +17,16 @@ FlowRouter.route('/viewCase/:caseId', {
 		BlazeLayout.render('dashboard', {
 			title: 'View Case',
 			content: 'viewCase',
+		});
+	},
+});
+
+FlowRouter.route('/upload', {
+	name: 'uploadFile',
+	action() {
+		BlazeLayout.render('dashboard', {
+			title: 'Upload File',
+			content: 'uploadFile',
 		});
 	},
 });

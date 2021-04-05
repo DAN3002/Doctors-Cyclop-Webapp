@@ -18,4 +18,28 @@ export const Storage = {
 			});
 		});
 	},
+
+	getSignedURL(fileName, fileType) {
+		const params = {
+			Bucket: BUCKET_NAME,
+			Key: fileName,
+			Expires: 60,
+			ContentType: fileType,
+			ACL: 'public-read',
+		};
+
+		return new Promise((resolve, reject) => {
+			S3.getSignedUrl('putObject', params, (err, data) => {
+				if (err) {
+					reject(err);
+				}
+				const returnData = {
+					signedRequest: data,
+					url: `https://${ BUCKET_NAME }.s3.amazonaws.com/${ fileName }`,
+				};
+
+				resolve(returnData);
+			});
+		});
+	},
 };

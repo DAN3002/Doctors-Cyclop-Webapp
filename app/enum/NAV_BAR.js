@@ -15,4 +15,9 @@ export const NAV_BAR = [
 		icon: 'fas fa-book-medical',
 		role: 'expert',
 	},
+	{
+		text: 'Upload File',
+		route: '/upload',
+		icon: 'fas fa-upload',
+	},
 ];

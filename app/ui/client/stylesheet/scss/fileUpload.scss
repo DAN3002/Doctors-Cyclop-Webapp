@@ -1,0 +1,44 @@
+.files {
+	input {
+		outline: 2px dashed #92b0b3;
+		outline-offset: -10px;
+		-webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		padding: 120px 0px 85px 35%;
+		text-align: center !important;
+		margin: 0;
+		width: 100% !important;
+
+		&:focus {
+			outline: 2px dashed #92b0b3;
+			outline-offset: -10px;
+			-webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+			transition: outline-offset .15s ease-in-out, background-color .15s linear;
+			border: 1px solid #92b0b3;
+		}
+	}
+
+	text-align: center;
+	position: relative;
+
+	&:after {
+		pointer-events: none;
+		position: absolute;
+		top: 60px;
+		left: 0;
+		width: 50px;
+		right: 0;
+		height: 56px;
+		content: "";
+		background-image: url(/img/upload.png);
+		display: block;
+		margin: 0 auto;
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+
+	button {
+		width: 100px;
+		margin-top: 20px;
+	}
+}

@@ -1,7 +1,7 @@
-import './startup/S3';
-import './method/getSignedURL';
+import { File } from './File';
 import { Storage } from './Storage';
 
 export {
+	File,
 	Storage,
 };

@@ -9,5 +9,5 @@ export const LABEL_LIST = [
 	'CVC - Abnormal',
 	'CVC - Borderline',
 	'CVC - Normal',
-	'Swan Ganz Catheter Present',
+	// 'Swan Ganz Catheter Present',
 ];
