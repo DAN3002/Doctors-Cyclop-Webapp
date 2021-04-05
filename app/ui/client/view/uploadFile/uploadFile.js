@@ -18,6 +18,7 @@ Template.uploadFile.events({
 			title: 'Please Wait !',
 			html: 'data uploading',
 			allowOutsideClick: false,
+			showConfirmButton: false,
 			onBeforeOpen: () => {
 				Swal.showLoading();
 			},
