@@ -7,6 +7,11 @@ import { Storage } from '../../../../file';
 import { getUserEmail } from '../../../../lib/client/getUserEmail';
 import './uploadFile.html';
 
+const splitFileName = (fileName) => {
+	const i = fileName.lastIndexOf('.');
+	return [fileName.substring(0, i), fileName.substring(i)];
+};
+
 Template.uploadFile.events({
 	async 'click #btn-upload'() {
 		Swal.fire({
@@ -23,7 +28,7 @@ Template.uploadFile.events({
 		const fileList = [];
 		for (const file of selectedFileList) {
 			// const fileBuffer = await File.convertFileToStream(file);
-			const [patientId, extension] = file.name.split('.');
+			const [patientId, extension] = splitFileName(file.name);
 			const fileName = `${ patientId }-${ new Date().getTime() }.${ extension }`;
 			const fileUrl = await Storage.uploadFileToS3(file, fileName);
 

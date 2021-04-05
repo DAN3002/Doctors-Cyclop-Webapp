@@ -37,6 +37,10 @@ $color-four: #F6B352;
 		.title {
 			font-size: 20px;
 			margin-bottom: 10px;
+
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
 		}
 
 		.icon {
