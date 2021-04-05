@@ -49,6 +49,12 @@ Template.viewCase.helpers({
 	trueLabel() {
 		return Template.instance().trueLabel.get();
 	},
+	showAll() {
+		return Template.instance().showAll.get();
+	},
+	AIResult() {
+		return Template.instance().AIResult.get();
+	},
 });
 
 Template.viewCase.events({
@@ -67,6 +73,10 @@ Template.viewCase.events({
 				text: 'Start relabel!',
 			});
 		});
+	},
+	'click #btn-toggle-all'() {
+		const showAll = Template.instance().showAll.get();
+		Template.instance().showAll.set(!showAll);
 	},
 });
 
@@ -105,12 +115,11 @@ const initViewer = (viewer) => {
 const processAIResult = (result) => {
 	const out = [];
 	for (const [label, value] of Object.entries(result)) {
-		if (value.label) {
-			out.push({
-				label,
-				score: value.score,
-			});
-		}
+		out.push({
+			label,
+			score: value.score,
+			isTrue: value.label,
+		});
 	}
 
 	return out;
@@ -120,6 +129,9 @@ Template.viewCase.onCreated(function() {
 	let viewer;
 	this.caseData = new ReactiveVar({});
 	this.trueLabel = new ReactiveVar([]);
+	this.AIResult = new ReactiveVar([]);
+	this.showAll = new ReactiveVar(false);
+
 	const caseId = FlowRouter.getParam('caseId');
 
 	const caseSub = this.subscribe('caseByCaseId', caseId);
@@ -128,7 +140,12 @@ Template.viewCase.onCreated(function() {
 		if (caseSub.ready()) {
 			const data = Cases.findAllCase().fetch()[0];
 			this.caseData.set(data);
-			this.trueLabel.set(processAIResult(data.AIResult || []));
+
+			const result = data.AIResult || {};
+			const labelResult = processAIResult(result);
+
+			this.AIResult.set(labelResult);
+			this.trueLabel.set(labelResult.filter((el) => el.isTrue));
 			initViewer(viewer);
 		}
 	});

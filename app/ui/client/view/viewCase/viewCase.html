@@ -32,17 +32,23 @@
 					<div class="form-group">
 						<div style="height: auto; padding: 15px;" class="form-control bg-dark" id="output-log">
 							<ul style="list-style-type: none; padding-left:0px">
-								{{#each predict in trueLabel}}
-									<li>{{predict.label}} ({{predict.score}})</li>
-								{{/each}}
+								{{#unless showAll}}
+									{{#each predict in trueLabel}}
+										<li>{{predict.label}} ({{predict.score}})</li>
+									{{/each}}
+								{{else}}
+									{{#each predict in AIResult}}
+										<li>{{predict.label}} ({{predict.score}})</li>
+									{{/each}}									
+								{{/unless}}
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="section" style="text-align:center;">
-					<button type="button" style="width: 10rem;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2">
+					<button type="button" style="width: 10rem;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2" id="btn-toggle-all">
 						<i class="fas fa-eye"></i>
-						View all
+						Toggle all
 					</button>
 					{{#if canRequestRelabel}}
 						<button type="button" style="width: 10rem;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2" id = "btn-relabel">

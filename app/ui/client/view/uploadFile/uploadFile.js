@@ -34,7 +34,6 @@ Template.uploadFile.events({
 
 		Swal.close();
 		$('#upload-file').val('');
-		console.log('Done!');
 		Swal.fire({
 			icon: 'success',
 			title: 'Success',
