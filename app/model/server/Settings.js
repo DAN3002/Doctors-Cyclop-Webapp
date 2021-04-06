@@ -23,7 +23,7 @@ class Settings extends Base {
 			_id: key,
 		};
 
-		return this.model.findOne(query);
+		return (this.model.findOne(query) || {}).value;
 	}
 
 	getAllSettings() {
@@ -34,8 +34,7 @@ class Settings extends Base {
 
 	add(key, label, initValue, type) {
 		const el = this.getByKey(key);
-
-		if (!el) {
+		if (el === undefined) {
 			const insert = {
 				_id: key,
 				label,

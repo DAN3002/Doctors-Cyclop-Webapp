@@ -19,7 +19,7 @@ Template.setting.events({
 			const value = el.val();
 			settings.push({
 				_id: el.attr('id'),
-				value: el.attr('type') === 'text' ? value : parseInt(value),
+				value: el.attr('type') === 'text' ? value || '' : parseInt(value || '0'),
 			});
 		});
 

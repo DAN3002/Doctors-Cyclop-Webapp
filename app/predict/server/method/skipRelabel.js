@@ -2,10 +2,11 @@ import { Meteor } from 'meteor/meteor';
 
 import { Submits, Cases } from '../../../model';
 import { LABEL_LIST } from '../../../enum/LABEL_LIST';
+import { Setting } from '../../../setting/server/lib/Setting';
 
 Meteor.methods({
 	'predict:skipRelabel'({ caseId, doctorEmail, type }) {
-		const maxSpecialistSkip = 1;
+		const maxSpecialistSkip = Setting.getSetting('maxSpecialistSubmit') || 1;
 
 		const comment = 'SKIP';
 		const labels = {};

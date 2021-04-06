@@ -2,10 +2,11 @@ import { Meteor } from 'meteor/meteor';
 
 import { Submits, Cases } from '../../../model';
 import { LABEL_LIST } from '../../../enum/LABEL_LIST';
+import { Setting } from '../../../setting/server/lib/Setting';
 
 Meteor.methods({
 	'predict:submitRelabel'({ caseId, doctorEmail, type, selectedLabels, comment }) {
-		const maxSpecialistSubmit = 1;
+		const maxSpecialistSubmit = Setting.getSetting('maxSpecialistSubmit') || 1;
 
 		const labels = {};
 		for (const label of LABEL_LIST) {
