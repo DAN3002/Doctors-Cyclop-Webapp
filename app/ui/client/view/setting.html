@@ -4,8 +4,8 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon1">{{setting.label}}</span>
 			</div>
-			<input type="{{setting.type}}" id="{{setting.key}}" class="form-control" aria-describedby="basic-addon1" value="{{setting.value}}">
+			<input type="{{setting.type}}" id="{{setting._id}}" class="form-control" aria-describedby="basic-addon1" value="{{setting.value}}">
 		</div>
 	{{/each}}
-	<button type="button" class="btn btn-primary" id="btn-upload">Save</button>
+	<button type="button" class="btn btn-primary" id="btn-save">Save</button>
 </template>
