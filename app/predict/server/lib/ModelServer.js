@@ -1,3 +1,7 @@
+// import axios from 'axios';
+
+// import { Setting } from '../../'
+
 const SIMPLE_RESULT = {
 	'ETT - Abnormal': {
 		score: 0.23,
@@ -47,7 +51,8 @@ const SIMPLE_RESULT = {
 
 export const ModelServer = {
 	async getAIPredict(caseList) {
-		// TODO setup api
+		// const apiUrl = Setting.getSetting('modelServerUrl');
+		// return axios.post(apiUrl, caseList);
 		return new Promise((resolve) => {
 			const result = caseList.map((el) => ({
 				caseId: el.caseId,
