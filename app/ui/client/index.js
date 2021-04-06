@@ -5,5 +5,6 @@ import './view/viewCase/viewCase';
 import './view/viewCase/commentSection';
 import './view/dashboard/navBar';
 import './view/uploadFile/uploadFile';
+import './view/setting';
 
 import './globalHelpers';

@@ -30,3 +30,13 @@ FlowRouter.route('/upload', {
 		});
 	},
 });
+
+FlowRouter.route('/setting', {
+	name: 'setting',
+	action() {
+		BlazeLayout.render('dashboard', {
+			title: 'Setting',
+			content: 'setting',
+		});
+	},
+});
