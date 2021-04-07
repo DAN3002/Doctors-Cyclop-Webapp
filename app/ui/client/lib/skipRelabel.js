@@ -6,7 +6,6 @@ import { getUserEmail } from '../../../lib/client/getUserEmail';
 
 export const skipRelabel = () => {
 	const caseId = FlowRouter.getParam('caseId');
-	/* TODO get doctordata */
 	const doctorEmail = getUserEmail();
 	const type = FlowRouter.current().queryParams.expert === 'true' ? 'Expert' : 'Specialist';
 
