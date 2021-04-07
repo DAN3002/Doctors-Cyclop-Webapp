@@ -52,14 +52,14 @@ const SIMPLE_RESULT = {
 export const ModelServer = {
 	async getAIPredict(caseList) {
 		// const apiUrl = Setting.getSetting('modelServerUrl');
-		// return axios.post(apiUrl, caseList);
+		// return axios.post(apiUrl, { caseList });
 		return new Promise((resolve) => {
 			const result = caseList.map((el) => ({
 				caseId: el.caseId,
 				...SIMPLE_RESULT,
 			}));
 			setTimeout(() => {
-				resolve(result);
+				resolve({ result });
 			}, caseList.length * 1000);
 		});
 	},

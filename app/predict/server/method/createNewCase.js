@@ -15,7 +15,7 @@ Meteor.methods({
 			});
 		}
 
-		const AIPredict = await ModelServer.getAIPredict(caseList);
+		const AIPredict = (await ModelServer.getAIPredict(caseList) || {}).result || [];
 		for (const result of AIPredict) {
 			Cases.updateAIResult(result);
 		}
