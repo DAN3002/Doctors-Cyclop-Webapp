@@ -25,4 +25,9 @@ export const NAV_BAR = [
 		route: '/upload',
 		icon: 'fas fa-upload',
 	},
+	{
+		text: 'Setting',
+		route: '/setting',
+		icon: 'fas fa-cogs',
+	},
 ];
