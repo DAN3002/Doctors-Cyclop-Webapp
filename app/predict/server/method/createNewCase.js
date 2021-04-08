@@ -7,8 +7,8 @@ Meteor.methods({
 	async 'predict:createNewCase'(caseListData, doctorEmail) {
 		const caseList = [];
 		for (const caseData of caseListData) {
-			const { patientId, fileUrl } = caseData;
-			const caseId = Cases.add(patientId, doctorEmail, fileUrl);
+			const { patientId, fileUrl, fileName } = caseData;
+			const caseId = Cases.add(patientId, doctorEmail, fileUrl, fileName);
 
 			caseList.push({
 				caseId, fileUrl,

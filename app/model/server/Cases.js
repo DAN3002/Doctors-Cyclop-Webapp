@@ -7,11 +7,12 @@ class Cases extends Base {
 		super('case');
 	}
 
-	add(patientId, doctorEmail, imageUrl) {
+	add(patientId, doctorEmail, imageUrl, fileName) {
 		const insert = {
 			patientId,
 			doctorEmail,
 			imageUrl,
+			fileName,
 			submitTime: new Date(),
 			state: 'Waiting',
 		};
