@@ -31,10 +31,12 @@ Template.uploadFile.events({
 			// const fileBuffer = await File.convertFileToStream(file);
 			const [patientId, extension] = splitFileName(file.name);
 			const fileName = `${ patientId }-${ new Date().getTime() }`;
-			const fileUrl = await Storage.uploadFileToS3(file, `${ fileName }.${ extension }`);
+			const fileUrl = await Storage.uploadFileToS3(file, `${ fileName }${ extension }`);
 
 			fileList.push({
-				fileUrl, patientId, fileName,
+				url: fileUrl,
+				patientId,
+				fileName,
 			});
 		}
 

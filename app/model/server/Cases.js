@@ -21,7 +21,7 @@ class Cases extends Base {
 	}
 
 	updateAIResult(result) {
-		const { caseId: _id } = result;
+		const { caseID: _id } = result;
 		const lablesList = {};
 		for (const label of LABEL_LIST) {
 			lablesList[label] = result[label].label;

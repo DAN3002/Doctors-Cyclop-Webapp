@@ -1,7 +1,8 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// import { Setting } from '../../'
+import { Setting } from '../../../setting/server/lib/Setting';
 
+// eslint-disable-next-line no-unused-vars
 const SIMPLE_RESULT = {
 	'ETT - Abnormal': {
 		score: 0.23,
@@ -51,16 +52,16 @@ const SIMPLE_RESULT = {
 
 export const ModelServer = {
 	async getAIPredict(caseList) {
-		// const apiUrl = Setting.getSetting('modelServerUrl');
-		// return axios.post(apiUrl, { caseList });
-		return new Promise((resolve) => {
-			const result = caseList.map((el) => ({
-				caseId: el.caseId,
-				...SIMPLE_RESULT,
-			}));
-			setTimeout(() => {
-				resolve({ result });
-			}, caseList.length * 1000);
-		});
+		const apiUrl = Setting.getSetting('modelServerUrl');
+		return axios.post(apiUrl, { caseList });
+		// return new Promise((resolve) => {
+		// 	const result = caseList.map((el) => ({
+		// 		caseId: el.caseId,
+		// 		...SIMPLE_RESULT,
+		// 	}));
+		// 	setTimeout(() => {
+		// 		resolve({ result });
+		// 	}, caseList.length * 1000);
+		// });
 	},
 };
