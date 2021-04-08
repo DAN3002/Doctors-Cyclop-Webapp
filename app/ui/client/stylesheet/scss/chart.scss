@@ -1,0 +1,24 @@
+$chart-size: 350px;
+
+#chart-container {
+	.chart {
+		width: $chart-size;
+		height: $chart-size;
+		margin: auto;
+
+		&-section {
+			margin: 20px
+		}
+
+		&-title {
+			font-size: 1.2rem;
+			text-align: center;
+			margin-top: 10px;
+			color: #04d6b3;
+			font-weight: bold;
+
+			text-align: left;
+			margin-top: 20px;
+		}
+	}
+}
