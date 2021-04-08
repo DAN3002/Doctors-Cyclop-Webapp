@@ -56,7 +56,7 @@ Template.patientList.onCreated(function() {
 	if (query.all === 'true') {
 		caseSub = this.subscribe('allCase');
 	} else {
-		caseSub = query.relabel === 'true' ? this.subscribe('needRelableCase')
+		caseSub = query.relabel === 'true' ? this.subscribe('needRelabelCase')
 			: this.subscribe('caseByDoctorEmail', getUserEmail());
 	}
 

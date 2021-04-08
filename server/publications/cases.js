@@ -10,8 +10,8 @@ Meteor.publish('allCase', function() {
 	return Cases.findAll();
 });
 
-Meteor.publish('needRelableCase', function() {
-	return Cases.findCaseNeedRelable();
+Meteor.publish('needRelabelCase', function() {
+	return Cases.findCaseNeedRelabel();
 });
 
 Meteor.publish('caseByCaseId', function(caseId) {

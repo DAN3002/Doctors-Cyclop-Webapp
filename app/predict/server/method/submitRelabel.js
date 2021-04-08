@@ -18,7 +18,7 @@ Meteor.methods({
 		Submits.add(caseId, doctorEmail, type, labels, comment, isOwner);
 
 		if (type === 'Expert') {
-			Cases.updateRelableResult(caseId, labels);
+			Cases.updateRelabelResult(caseId, labels);
 		} else {
 			const count = Submits.countSubmitOfCaseByRole(caseId, 'Specialist', false);
 			console.log(count);

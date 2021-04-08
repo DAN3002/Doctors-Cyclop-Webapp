@@ -66,7 +66,7 @@ Template.viewCase.events({
 	},
 	'click #btn-relabel'() {
 		const caseId = FlowRouter.getParam('caseId');
-		Meteor.call('predict:startRelable', caseId, () => {
+		Meteor.call('predict:startRelabel', caseId, () => {
 			Swal.fire({
 				icon: 'success',
 				title: 'Success',

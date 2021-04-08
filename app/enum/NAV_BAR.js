@@ -10,7 +10,7 @@ export const NAV_BAR = [
 		icon: 'fas fa-columns',
 	},
 	{
-		text: 'Need Relable Dashboard',
+		text: 'Need Relabel Dashboard',
 		route: '/?relabel=true',
 		icon: 'fas fa-check',
 	},

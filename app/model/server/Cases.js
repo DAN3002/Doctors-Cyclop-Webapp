@@ -58,7 +58,7 @@ class Cases extends Base {
 		return this.model.find(query);
 	}
 
-	findCaseNeedRelable() {
+	findCaseNeedRelabel() {
 		const query = {
 			relabel: true,
 			relabelResult: {
@@ -69,7 +69,7 @@ class Cases extends Base {
 		return this.model.find(query);
 	}
 
-	updateRelableResult(caseId, result) {
+	updateRelabelResult(caseId, result) {
 		const query = {
 			_id: caseId,
 		};
@@ -96,7 +96,7 @@ class Cases extends Base {
 		return this.model.update(query, update);
 	}
 
-	startRelable(caseId) {
+	startRelabel(caseId) {
 		const query = {
 			_id: caseId,
 		};
