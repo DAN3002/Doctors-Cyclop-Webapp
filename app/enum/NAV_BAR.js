@@ -1,5 +1,10 @@
 export const NAV_BAR = [
 	{
+		text: 'Sumary Dashboard',
+		route: '/sumary',
+		icon: 'fas fa-list-alt',
+	},
+	{
 		text: 'Your Patient Dashboard',
 		route: '/',
 		icon: 'fas fa-columns',
