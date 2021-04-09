@@ -6,7 +6,7 @@ class Cases extends Base {
 	}
 
 	findByFilter(filter) {
-		const { patientId, state, expert } = filter;
+		const { patientId, state, expert, status } = filter;
 		const query = {};
 		const sort = {
 			submitTime: -1,
@@ -18,6 +18,10 @@ class Cases extends Base {
 
 		if (state) {
 			query.state = state;
+		}
+
+		if (status) {
+			query.status = status;
 		}
 
 		if (expert) {

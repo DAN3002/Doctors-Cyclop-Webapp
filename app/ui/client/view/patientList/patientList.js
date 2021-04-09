@@ -5,6 +5,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Cases } from '../../../../model';
 import { getUserEmail } from '../../../../lib/client/getUserEmail';
 import { STATE } from '../../../../enum/STATE';
+import { STATUS } from '../../../../enum/STATUS';
 import './patientList.html';
 
 Template.patientList.helpers({
@@ -14,9 +15,16 @@ Template.patientList.helpers({
 	states() {
 		return STATE;
 	},
+	statuss() {
+		return STATUS;
+	},
 	isSelectedState(currentState) {
 		const { state } = FlowRouter.current().queryParams;
 		return state === currentState;
+	},
+	isSelectedStatus(currentStatus) {
+		const { status } = FlowRouter.current().queryParams;
+		return status === currentStatus;
 	},
 	filterQuery() {
 		return FlowRouter.current().queryParams;
@@ -27,6 +35,8 @@ Template.patientList.events({
 	'click #findBtn'() {
 		const patientId = $('#patientIdInput').val();
 		const state = $('#patientState').val();
+		const status = $('#patientStatus').val();
+
 		const filter = {};
 
 		if (patientId && patientId.length) {
@@ -35,6 +45,10 @@ Template.patientList.events({
 
 		if (state !== 'All') {
 			filter.state = state;
+		}
+
+		if (status !== 'All') {
+			filter.status = status;
 		}
 
 		if (FlowRouter.current().queryParams.expert === 'true') {
