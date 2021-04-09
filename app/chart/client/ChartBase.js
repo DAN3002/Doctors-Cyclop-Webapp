@@ -1,13 +1,14 @@
 import { Chart } from 'chart.js/dist/chart.min';
 
 export class ChartBase {
-	constructor(data, type, dom) {
+	constructor(data, type, dom, options = {}) {
 		const { onClickItem } = this;
 		const config = {
 			type,
 			data,
 			responsive: true,
 			options: {
+				...options,
 				onClick(evt, item) {
 					onClickItem(evt, item);
 				},

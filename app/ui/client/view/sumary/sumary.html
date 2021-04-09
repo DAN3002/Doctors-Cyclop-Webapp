@@ -1,20 +1,31 @@
 <template name="sumary">
-	<div>
-		<div class="row" id="chart-container">
+	<div id="chart-container">
+		<div class="row">
 			<div class="col-md chart-section">
+				<h2 class="chart-title">
+					State Chart
+				</h2>
 				<div class="chart">
-					<h2 class="chart-title">
-						State Chart
-					</h2>
 					<canvas id="state-chart"></canvas>
 				</div>
 			</div>
 			<div class="col-md chart-section">
+				<h2 class="chart-title">
+					Relabel Chart
+				</h2>
 				<div class="chart">
+					<canvas id="status-chart"></canvas>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md chart-section">
+				<div class="chart chart-full-size">
 					<h2 class="chart-title">
 						Relabel Chart
 					</h2>
-					<canvas id="status-chart"></canvas>
+					<canvas id="count-case-chart"></canvas>
 				</div>
 			</div>
 		</div>

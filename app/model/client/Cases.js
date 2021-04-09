@@ -38,6 +38,19 @@ class Cases extends Base {
 		const query = {};
 		return this.model.find(query);
 	}
+
+	findLast7DaysCases() {
+		const minusDate = 60 * 60 * 24 * 1000 * 6;
+		const minDate = new Date(new Date().setHours(0, 0, 0, 0) - minusDate);
+
+		const query = {
+			submitTime: {
+				$gte: minDate,
+			},
+		};
+
+		return this.model.find(query);
+	}
 }
 
 export default new Cases();

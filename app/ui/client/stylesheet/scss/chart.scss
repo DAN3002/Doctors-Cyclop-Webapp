@@ -6,6 +6,11 @@ $chart-size: 350px;
 		height: $chart-size;
 		margin: auto;
 
+		&.chart-full-size {
+			width: auto;
+			height: auto;	
+		}
+
 		&-section {
 			margin: 20px
 		}
