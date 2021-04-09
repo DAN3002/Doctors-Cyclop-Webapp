@@ -1,9 +1,9 @@
 export const ChartEnum = {
 	STATE_CHART_LABELS: [
 		'Waiting',
-		'Borderline',
-		'Abnormal',
 		'Normal',
+		'Abnormal',
+		'Borderline',
 	],
 	RELABEL_CHART_LABELS: [
 		'AI Predict',
