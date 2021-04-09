@@ -15,6 +15,7 @@ class Cases extends Base {
 			fileName,
 			submitTime: new Date(),
 			state: 'Waiting',
+			status: 'AI Predict',
 		};
 
 		return this.model.insert(insert);
@@ -77,6 +78,7 @@ class Cases extends Base {
 			$set: {
 				relabelResult: result,
 				state: getStateFromLableList(result),
+				status: 'Relabelled',
 			},
 		};
 
@@ -104,6 +106,7 @@ class Cases extends Base {
 			$set: {
 				relabel: true,
 				relabelRole: 'specialist',
+				status: 'Relabelling',
 			},
 		};
 

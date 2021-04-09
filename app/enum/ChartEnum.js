@@ -5,4 +5,9 @@ export const ChartEnum = {
 		'Abnormal',
 		'Normal',
 	],
+	RELABEL_CHART_LABELS: [
+		'AI Predict',
+		'Relabelling',
+		'Relabelled',
+	],
 };
