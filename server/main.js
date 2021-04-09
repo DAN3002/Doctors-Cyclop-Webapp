@@ -5,5 +5,6 @@ import '../app/setting';
 import './publications/cases';
 import './publications/submit';
 import './publications/userData';
+import './publications/users';
 import './startup/onCreateUser';
 import './startup/initSetting';

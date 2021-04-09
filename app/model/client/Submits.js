@@ -19,6 +19,22 @@ class Submits extends Base {
 		};
 		return this.model.find(query).count() > 0;
 	}
+
+	countCaseDataByUserEmail(doctorEmail) {
+		const querySubmit = {
+			doctorEmail,
+			skip: false,
+		};
+		const querySkip = {
+			doctorEmail,
+			skip: true,
+		};
+
+		return [
+			this.model.find(querySubmit).count(),
+			this.model.find(querySkip).count(),
+		];
+	}
 }
 
 export default new Submits();

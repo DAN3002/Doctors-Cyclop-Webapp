@@ -52,3 +52,12 @@
   align-items: center;
   justify-content: center;
 }
+
+.fa-arrow {
+  &-up {
+    color: red
+  }
+  &-down {
+    color: green
+  }
+}

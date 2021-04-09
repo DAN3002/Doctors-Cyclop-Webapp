@@ -37,6 +37,11 @@ class Submits extends Base {
 
 		return this.model.find(query).count();
 	}
+
+	findAll() {
+		const query = {};
+		return this.model.find(query);
+	}
 }
 
 export default new Submits();

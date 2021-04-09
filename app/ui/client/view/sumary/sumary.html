@@ -23,9 +23,38 @@
 			<div class="col-md chart-section">
 				<div class="chart chart-full-size">
 					<h2 class="chart-title">
-						Relabel Chart
+						Case Chart
 					</h2>
 					<canvas id="count-case-chart"></canvas>
+				</div>
+			</div>
+			<div class="col-md chart-section">
+				<div class="chart chart-full-size">
+					<h2 class="chart-title">
+						User Table
+					</h2>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">#</th>
+								<th scope="col">Username</th>
+								<th scope="col">Submit</th>
+								<th scope="col">Skip</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each userData in userSubmitData}}
+								<tr>
+									<th scope="row"><i class="fa fa-arrow-{{getArrow userData}}" aria-hidden="true"></i></th>
+									<th>{{@index}}</th>
+									<td>{{userData.username}}</td>
+									<td>{{userData.submit}}</td>
+									<td>{{userData.skip}}</td>
+								</tr>
+							{{/each}}
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
