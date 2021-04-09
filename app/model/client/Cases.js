@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 import { Base } from '../_Base';
 
 class Cases extends Base {
@@ -6,7 +8,7 @@ class Cases extends Base {
 	}
 
 	findByFilter(filter) {
-		const { patientId, state, expert, status } = filter;
+		const { patientId, state, expert, status, date } = filter;
 		const query = {};
 		const sort = {
 			submitTime: -1,
@@ -28,6 +30,15 @@ class Cases extends Base {
 			query.relabelRole = 'expert';
 			query.relabelResult = {
 				$exists: false,
+			};
+		}
+
+		if (date) {
+			const start = moment(date, 'DD/MM/YYYY').toDate();
+			const end = new Date(start.getTime() + (60 * 60 * 24 * 1000));
+			query.submitTime = {
+				$gte: start,
+				$lte: end,
 			};
 		}
 
