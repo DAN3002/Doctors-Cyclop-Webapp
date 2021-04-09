@@ -5,7 +5,7 @@ export const ChartEnum = {
 		'Abnormal',
 		'Borderline',
 	],
-	RELABEL_CHART_LABELS: [
+	STATUS_CHART_LABELS: [
 		'AI Predict',
 		'Relabelling',
 		'Relabelled',
