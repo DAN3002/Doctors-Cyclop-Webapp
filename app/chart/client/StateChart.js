@@ -4,6 +4,7 @@ import { ChartBase } from './ChartBase';
 import { ChartEnum } from '../../enum/ChartEnum';
 
 const backgroundColor = [
+	'#01228f',
 	'#1F2124',
 	'#478a21',
 	'#b05c13',

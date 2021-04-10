@@ -1,5 +1,6 @@
 export const ChartEnum = {
 	STATE_CHART_LABELS: [
+		'Unknown',
 		'Waiting',
 		'Normal',
 		'Abnormal',

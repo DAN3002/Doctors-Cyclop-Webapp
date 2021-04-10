@@ -6,5 +6,5 @@ export const getStateFromLableList = (labels) => {
 		'Normal',
 	];
 
-	return stateSort.find((el) => list.some((label) => label.includes(el))) || 'Unknow';
+	return stateSort.find((el) => list.some((label) => label.includes(el))) || 'Unknown';
 };

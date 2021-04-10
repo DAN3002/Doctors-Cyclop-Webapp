@@ -5,6 +5,8 @@ $color-Waiting: #1F2124;
 $color-Normal: #478a21;
 $color-Abnormal: #b05c13;
 $color-Borderline: #bd271c;
+$color-Unknown: #01228f;
+
 
 $color-two: #383A3F;
 $color-three: #F68657;
@@ -73,6 +75,9 @@ $color-four: #F6B352;
 			}
 			&-Borderline {
 				background: $color-Borderline;
+			}
+			&-Unknown {
+				background: $color-Unknown;
 			}
 		}
 	}
