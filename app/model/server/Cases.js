@@ -116,6 +116,20 @@ class Cases extends Base {
 	findAll() {
 		return this.model.find({});
 	}
+
+	updateHashByCaseId(caseId, hash) {
+		const query = {
+			_id: caseId,
+		};
+
+		const update = {
+			$set: {
+				hash,
+			},
+		};
+
+		return this.model.update(query, update);
+	}
 }
 
 export default new Cases();

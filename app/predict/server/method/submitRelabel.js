@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Submits, Cases } from '../../../model';
 import { LABEL_LIST } from '../../../enum/LABEL_LIST';
 import { Setting } from '../../../setting/server/lib/Setting';
+import { hashCaseData } from '../../../crypto';
 
 Meteor.methods({
 	'predict:submitRelabel'({ caseId, doctorEmail, type, selectedLabels, comment }) {
@@ -19,6 +20,7 @@ Meteor.methods({
 
 		if (type === 'Expert') {
 			Cases.updateRelabelResult(caseId, labels);
+			hashCaseData(caseId);
 		} else {
 			const count = Submits.countSubmitOfCaseByRole(caseId, 'Specialist', false);
 			console.log(count);
