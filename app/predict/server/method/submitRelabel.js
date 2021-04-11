@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Submits, Cases } from '../../../model';
 import { LABEL_LIST } from '../../../enum/LABEL_LIST';
 import { Setting } from '../../../setting/server/lib/Setting';
-import { hashCaseData } from '../../../crypto';
+import { hashCaseData, hashSubmitData } from '../../../crypto';
 
 Meteor.methods({
 	'predict:submitRelabel'({ caseId, doctorEmail, type, selectedLabels, comment }) {
@@ -16,14 +16,14 @@ Meteor.methods({
 		const caseData = Cases.findByCaseId(caseId).fetch()[0] || {};
 		const isOwner = doctorEmail === caseData.doctorEmail;
 
-		Submits.add(caseId, doctorEmail, type, labels, comment, isOwner);
+		const submitId = Submits.add(caseId, doctorEmail, type, labels, comment, isOwner);
+		hashSubmitData(submitId);
 
 		if (type === 'Expert') {
 			Cases.updateRelabelResult(caseId, labels);
 			hashCaseData(caseId);
 		} else {
 			const count = Submits.countSubmitOfCaseByRole(caseId, 'Specialist', false);
-			console.log(count);
 			if (count >= maxSpecialistSubmit) {
 				Cases.updateRelabelToExpert(caseId);
 			}

@@ -42,6 +42,28 @@ class Submits extends Base {
 		const query = {};
 		return this.model.find(query);
 	}
+
+	findById(_id) {
+		const query = {
+			_id,
+		};
+
+		return this.model.find(query);
+	}
+
+	updateHashById(_id, hash) {
+		const query = {
+			_id,
+		};
+
+		const update = {
+			$set: {
+				hash,
+			},
+		};
+
+		return this.model.update(query, update);
+	}
 }
 
 export default new Submits();
