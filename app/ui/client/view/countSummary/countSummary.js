@@ -3,15 +3,15 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import { Cases } from '../../../../model';
 import { getUserEmail } from '../../../../lib/client/getUserEmail';
-import './countSumary.html';
+import './countSummary.html';
 
-Template.countSumary.helpers({
+Template.countSummary.helpers({
 	countRelabelling()	 {
 		return Template.instance().countRelabelling.get();
 	},
 });
 
-Template.countSumary.onCreated(function() {
+Template.countSummary.onCreated(function() {
 	this.countRelabelling = new ReactiveVar(0);
 
 	const doctorEmail = getUserEmail();

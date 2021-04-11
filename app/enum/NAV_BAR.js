@@ -1,7 +1,7 @@
 export const NAV_BAR = [
 	{
-		text: 'Sumary Dashboard',
-		route: '/sumary',
+		text: 'Summary Dashboard',
+		route: '/summary',
 		icon: 'fas fa-list-alt',
 	},
 	{

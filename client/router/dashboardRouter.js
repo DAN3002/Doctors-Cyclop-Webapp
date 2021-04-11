@@ -41,12 +41,12 @@ FlowRouter.route('/setting', {
 	},
 });
 
-FlowRouter.route('/sumary', {
-	name: 'sumary',
+FlowRouter.route('/summary', {
+	name: 'summary',
 	action() {
 		BlazeLayout.render('dashboard', {
-			title: 'Sumary Dashboard',
-			content: 'sumary',
+			title: 'Summary Dashboard',
+			content: 'summary',
 		});
 	},
 });

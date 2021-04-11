@@ -10,14 +10,14 @@ import {
 } from '../../../../chart';
 import { Cases, Submits } from '../../../../model';
 
-import './sumary.html';
+import './summary.html';
 
 let stateChart;
 let statusChart;
 let countCaseChart;
 
 
-Template.sumary.helpers({
+Template.summary.helpers({
 	userSubmitData() {
 		return Template.instance().userSubmitData.get();
 	},
@@ -26,11 +26,11 @@ Template.sumary.helpers({
 	},
 });
 
-Template.sumary.onCreated(function() {
+Template.summary.onCreated(function() {
 	this.userSubmitData = new ReactiveVar([]);
 });
 
-Template.sumary.onRendered(function() {
+Template.summary.onRendered(function() {
 	settingChart();
 	stateChart = new StateChart('state-chart');
 	statusChart = new StatusChart('status-chart');
