@@ -130,7 +130,7 @@ Template.viewCase.onCreated(function() {
 
 	const caseId = FlowRouter.getParam('caseId');
 
-	const caseSub = this.subscribe('caseByCaseId', caseId);
+	const caseSub = this.subscribe('allCase', caseId);
 
 	this.autorun(() => {
 		if (caseSub.ready()) {
