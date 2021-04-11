@@ -71,6 +71,14 @@ Template.viewCase.events({
 				icon: 'success',
 				title: 'Success',
 				text: 'Start relabel!',
+				buttons: ['Select Patient?', 'Speed Case?'],
+				showCancelButton: true,
+				confirmButtonText: 'Relabel now!',
+				cancelButtonText: 'Go back dashboard',
+			}).then((value) => {
+				if (!value.isConfirmed) {
+					FlowRouter.go('/');
+				}
 			});
 		});
 	},
