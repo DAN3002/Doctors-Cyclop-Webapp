@@ -17,14 +17,20 @@
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Features
-                </div>
+                {{#if currentUser}}
+                    {{> countSumary}}
+                {{/if}}
 
-                <!-- Nav Item - Dashboard -->
-                {{> navBar}}
-                <!-- Divider -->
+                <div>
+                    <!-- Heading -->
+                    <div class="sidebar-heading">
+                        Features
+                    </div>
+
+                    <!-- Nav Item - Dashboard -->
+                    {{> navBar}}
+                    <!-- Divider -->
+                </div>
 
             </ul>
             <!-- End of Sidebar -->

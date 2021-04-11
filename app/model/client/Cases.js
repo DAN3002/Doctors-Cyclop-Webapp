@@ -62,6 +62,14 @@ class Cases extends Base {
 
 		return this.model.find(query);
 	}
+
+	countRelabelling() {
+		const query = {
+			status: 'Relabelling',
+		};
+
+		return this.model.find(query).count();
+	}
 }
 
 export default new Cases();

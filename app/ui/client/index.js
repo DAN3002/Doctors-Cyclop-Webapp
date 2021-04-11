@@ -7,5 +7,6 @@ import './view/dashboard/navBar';
 import './view/uploadFile/uploadFile';
 import './view/setting';
 import './view/sumary/sumary';
+import './view/countSumary/countSumary';
 
 import './globalHelpers';
