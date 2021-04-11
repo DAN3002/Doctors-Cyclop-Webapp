@@ -7,6 +7,14 @@ class Cases extends Base {
 		super('case');
 	}
 
+	findCaseById(_id) {
+		const query = {
+			_id,
+		};
+
+		return this.model.find(query);
+	}
+
 	findByFilter(filter) {
 		const { patientId, state, expert, status, date } = filter;
 		const query = {};
@@ -63,9 +71,10 @@ class Cases extends Base {
 		return this.model.find(query);
 	}
 
-	countRelabelling() {
+	countRelabelling(doctorEmail) {
 		const query = {
 			status: 'Relabelling',
+			doctorEmail,
 		};
 
 		return this.model.find(query).count();

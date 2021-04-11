@@ -134,7 +134,7 @@ Template.viewCase.onCreated(function() {
 
 	this.autorun(() => {
 		if (caseSub.ready()) {
-			const data = Cases.findAllCase().fetch()[0];
+			const data = Cases.findCaseById(caseId).fetch()[0];
 			this.caseData.set(data);
 
 			const result = data.AIResult || {};

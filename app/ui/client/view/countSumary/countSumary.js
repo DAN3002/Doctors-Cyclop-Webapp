@@ -15,11 +15,8 @@ Template.countSumary.onCreated(function() {
 	this.countRelabelling = new ReactiveVar(0);
 
 	const doctorEmail = getUserEmail();
-	const caseSub = this.subscribe('caseByDoctorEmail', doctorEmail);
 
 	this.autorun(() => {
-		if (caseSub.ready()) {
-			this.countRelabelling.set(Cases.countRelabelling());
-		}
+		this.countRelabelling.set(Cases.countRelabelling(doctorEmail));
 	});
 });
