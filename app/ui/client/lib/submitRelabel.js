@@ -28,6 +28,12 @@ export const submitRelabel = () => {
 		onBeforeOpen: () => {
 			Swal.getInput().style.display = 'none';
 		},
+		inputValidator: () => {
+			const comment = document.getElementById('mentorComment').value;
+			if (!comment.length) {
+				return 'Must type comment!';
+			}
+		},
 		// customClass: 'swal-wide',
 		showConfirmButton: true,
 		showCancelButton: true,
