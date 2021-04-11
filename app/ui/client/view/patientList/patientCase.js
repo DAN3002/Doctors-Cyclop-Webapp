@@ -3,18 +3,25 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import './patientCase.html';
 
-// Template.patientCase.helpers({
-// 	status() {
-// 		const {
-// 			relabel, relabelResult,
-// 		} = this;
+Template.patientCase.helpers({
+	score() {
+		const {
+			state, AIResult, status,
+		} = this;
 
-// 		if (relabel) {
-// 			return relabelResult ? 'Relabelled' : 'Relabelling';
-// 		}
-// 		return 'AI Predict';
-// 	},
-// });
+		if (!AIResult || status === 'Relabelled') {
+			return '';
+		}
+
+		const score = Math.max(
+			...Object.keys(AIResult)
+				.filter((key) => key.includes(state))
+				.map((key) => AIResult[key].score),
+		);
+
+		return score ? score.toFixed(4) : '';
+	},
+});
 
 Template.patientCase.events({
 	'click .case'() {
