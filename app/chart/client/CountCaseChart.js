@@ -47,9 +47,13 @@ export class CountCaseChart extends ChartBase {
 		return countMap;
 	}
 
+	convertStringToDate(date) {
+		return moment(date, 'DD/MM/YYYY').toDate();
+	}
+
 	updateData(raw) {
 		const counts = Array.from(this.getCountMap(raw));
-		counts.sort((a, b) => new Date(a[0]) - new Date(b[0]));
+		counts.sort((a, b) => this.convertStringToDate(a[0]) - this.convertStringToDate(b[0]));
 
 		const labelsDate = counts.map((el) => el[0]);
 		const data = counts.map((el) => el[1]);
