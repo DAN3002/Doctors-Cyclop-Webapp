@@ -77,6 +77,23 @@ Template.patientList.onCreated(function() {
 	this.autorun(() => {
 		if (caseSub.ready()) {
 			const data = Cases.findByFilter(this.filter.get()).fetch();
+
+			const SORT_LABEL = [
+				'Abnormal',
+				'Borderline',
+				'Waiting',
+				'Normal',
+			];
+			data.sort((a, b) => {
+				const timeA = a.submitTime.setHours(0, 0, 0, 0);
+				const timeB = b.submitTime.setHours(0, 0, 0, 0);
+
+				if (timeA === timeB) {
+					return SORT_LABEL.indexOf(a.state) - SORT_LABEL.indexOf(b.state);
+				}
+				return timeB - timeA;
+			});
+
 			this.casesList.set(data);
 		}
 	});
