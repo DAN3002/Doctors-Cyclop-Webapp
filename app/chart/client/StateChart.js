@@ -7,8 +7,8 @@ const backgroundColor = [
 	'#01228f',
 	'#1F2124',
 	'#478a21',
-	'#b05c13',
 	'#bd271c',
+	'#b05c13',
 ];
 
 const labels = ChartEnum.STATE_CHART_LABELS;

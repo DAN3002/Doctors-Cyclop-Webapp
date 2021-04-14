@@ -65,21 +65,31 @@ Template.viewCase.events({
 		skipRelabel();
 	},
 	'click #btn-relabel'() {
-		const caseId = FlowRouter.getParam('caseId');
-		Meteor.call('predict:startRelabel', caseId, () => {
-			Swal.fire({
-				icon: 'success',
-				title: 'Success',
-				text: 'Start relabel!',
-				buttons: ['Select Patient?', 'Speed Case?'],
-				showCancelButton: true,
-				confirmButtonText: 'Relabel now!',
-				cancelButtonText: 'Go back dashboard',
-			}).then((value) => {
-				if (!value.isConfirmed) {
-					FlowRouter.go('/');
-				}
-			});
+		Swal.fire({
+			title: 'Are you sure?',
+			icon: 'warning',
+			confirmButtonText: 'Yes',
+			showCancelButton: true,
+			dangerMode: true,
+		}).then((value) => {
+			if (value.isConfirmed) {
+				const caseId = FlowRouter.getParam('caseId');
+				Meteor.call('predict:startRelabel', caseId, () => {
+					Swal.fire({
+						icon: 'success',
+						title: 'Success',
+						text: 'Start relabel!',
+						buttons: ['Select Patient?', 'Speed Case?'],
+						showCancelButton: true,
+						confirmButtonText: 'Relabel now!',
+						cancelButtonText: 'Go back dashboard',
+					}).then((value) => {
+						if (!value.isConfirmed) {
+							FlowRouter.go('/');
+						}
+					});
+				});
+			}
 		});
 	},
 	'click #btn-toggle-all'() {
