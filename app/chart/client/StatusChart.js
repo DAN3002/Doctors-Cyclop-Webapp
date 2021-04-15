@@ -4,9 +4,9 @@ import { ChartBase } from './ChartBase';
 import { ChartEnum } from '../../enum/ChartEnum';
 
 const backgroundColor = [
-	'#669C68',
-	'#D1BF3B',
-	'#C339D1',
+	'#577991',
+	'#3899DE',
+	'#DED36F',
 ];
 
 const labels = ChartEnum.STATUS_CHART_LABELS;
