@@ -10,7 +10,6 @@ const router = express();
 router.post('/api/uploadMaskImage', async (req, res) => {
 	const body = await parse(req);
 
-	console.log(body);
 
 	const { caseId, base64 } = body;
 	const caseData = Cases.findByCaseId(caseId).fetch()[0];
@@ -18,7 +17,6 @@ router.post('/api/uploadMaskImage', async (req, res) => {
 	const imageName = `${ caseData.fileName }_Mask.jpg`;
 	const imageUrl = await Storage.uploadFileBase64(imageName, base64);
 
-	console.log(imageName);
 	Cases.updateMaskImageUrl(caseId, imageUrl);
 
 	res.send(200);
