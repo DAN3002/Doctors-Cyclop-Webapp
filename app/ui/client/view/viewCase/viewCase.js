@@ -110,11 +110,14 @@ const getImageList = () => {
 			alt: 'Mask Image',
 		},
 	];
-	console.log(caseData.maskImage);
 	return out.filter((el) => el.url);
 };
 
 const initViewer = (viewer) => {
+	if (viewer) {
+		viewer.destroy();
+	}
+
 	const imageList = getImageList();
 	const container = $('#viewer-images');
 
@@ -129,6 +132,8 @@ const initViewer = (viewer) => {
 		title: true,
 	});
 	viewer.show();
+
+	return viewer;
 };
 
 const processAIResult = (result) => {
@@ -165,7 +170,7 @@ Template.viewCase.onCreated(function() {
 
 			this.AIResult.set(labelResult);
 			this.trueLabel.set(labelResult.filter((el) => el.isTrue));
-			initViewer(viewer);
+			viewer = initViewer(viewer);
 		}
 	});
 });
