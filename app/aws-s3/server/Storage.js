@@ -2,11 +2,13 @@ import S3 from './startup/S3';
 
 const BUCKET_NAME = 'doctor-cylop';
 export const Storage = {
-	uploadFile(Key, Body) {
+	uploadFileBase64(Key, base64) {
+		const base64Data = new Buffer.from(base64.replace(/^data:image\/\w+;base64,/, ''), 'base64');
 		const params = {
 			Bucket: BUCKET_NAME,
 			Key,
-			Body,
+			Body: base64Data,
+			ContentType: 'image/jpg',
 		};
 		return new Promise((resolve, reject) => {
 			S3.upload(params, (err, data) => {

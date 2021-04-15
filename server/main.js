@@ -2,6 +2,7 @@
 import '../app/aws-s3';
 import '../app/predict';
 import '../app/setting';
+import '../app/api';
 import './publications/cases';
 import './publications/submit';
 import './publications/userData';

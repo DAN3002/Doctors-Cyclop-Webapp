@@ -105,7 +105,12 @@ const getImageList = () => {
 			url: caseData.imageUrl,
 			alt: 'Original Image',
 		},
+		{
+			url: caseData.maskImage,
+			alt: 'Mask Image',
+		},
 	];
+	console.log(caseData.maskImage);
 	return out.filter((el) => el.url);
 };
 

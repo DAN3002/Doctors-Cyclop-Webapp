@@ -12,6 +12,7 @@
         "sourceType": "module"
     },
     "rules": {
-        "guard-for-in": "off"
+        "guard-for-in": "off",
+        "new-cap": "off"
     }
 }

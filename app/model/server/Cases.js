@@ -130,6 +130,19 @@ class Cases extends Base {
 
 		return this.model.update(query, update);
 	}
+
+	updateMaskImageUrl(id, url) {
+		const query = {
+			_id: id,
+		};
+		const update = {
+			$set: {
+				maskImage: url,
+			},
+		};
+
+		return this.model.update(query, update);
+	}
 }
 
 export default new Cases();
