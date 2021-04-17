@@ -85,8 +85,8 @@ Template.patientList.onCreated(function() {
 				'Normal',
 			];
 			data.sort((a, b) => {
-				const timeA = a.submitTime.setHours(0, 0, 0, 0);
-				const timeB = b.submitTime.setHours(0, 0, 0, 0);
+				const timeA = new Date(a.submitTime.getTime()).setHours(0, 0, 0, 0);
+				const timeB = new Date(b.submitTime.getTime()).setHours(0, 0, 0, 0);
 
 				if (timeA === timeB) {
 					return SORT_LABEL.indexOf(a.state) - SORT_LABEL.indexOf(b.state);
