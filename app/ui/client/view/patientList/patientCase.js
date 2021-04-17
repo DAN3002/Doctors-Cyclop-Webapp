@@ -9,7 +9,7 @@ Template.patientCase.helpers({
 			state, AIResult, status,
 		} = this;
 
-		if (!AIResult || status === 'Relabelled') {
+		if (!AIResult || status === 'Relabelled' || state === 'Unknown') {
 			return '';
 		}
 
