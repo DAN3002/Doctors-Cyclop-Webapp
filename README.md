@@ -14,17 +14,22 @@ Doctor Cyclop is one project of the Phoenix team in FPT Edu Hackathon 2021. This
 ## Config
 
 - Create file `.env` and copy content from `.env_dummy`. Fill in all information needed.
-- You can change **MONGO_URL** or **ROOT_URL*** in file `run.sh`
+- You can change **MONGO_URL** or **ROOT_URL** in file `run.sh`
+
+## Run 
+
+- Install packages
+```
+npm install
+```
+- Run file `run.sh` then open `http://localhost:3000` in your browser to access web app.
+```
+./run.sh
+```
 
 ## Setup model server
 Run model server from this [repository](https://github.com/thaiminhpv/Doctor-Cyclop-Hackathon-2021). Then copy the url of model server to `Model Url` in setting page.
 
-## Run 
-
-Run file `run.sh` then open `http://localhost:3000` in your browser to access web app.
-```
-./run.sh
-```
 
 ## Copyright and License
 The template was developed based on [SB Admin 2](https://startbootstrap.com/theme/sb-admin-2).
