@@ -1,5 +1,7 @@
 # Doctors Cyclop Webapp
 
+Website that implements the machine learning model for classifying the presence and correct placement of tubes on chest x-rays, allowing for easy access and practical application of the model by medical professionals.
+
 Doctor Cyclop is one project of the Phoenix team in FPT Edu Hackathon 2021. This repository contains code of the web interface for interact with the system. For the  model, view [Doctor-Cyclop-Hackathon-2021](https://github.com/thaiminhpv/Doctor-Cyclop-Hackathon-2021).
 
 ![UI](./assets/ui.png)
